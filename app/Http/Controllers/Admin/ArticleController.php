@@ -75,7 +75,7 @@ class ArticleController extends CommonController
         $data['status'] = $request->input('status', 0);
         $data['is_reprint'] = $request->input('is_reprint', 0);
         $data['reprint_url'] = $request->input('reprint_url', '');
-        $content = $request->input('content', '');
+        $data['content'] = $request->input('content', '');
         $tag = $request->input('tag', array());
         $id = $request->input('id', 0);
 
@@ -89,7 +89,7 @@ class ArticleController extends CommonController
         if(!$data['category_id']){
             return $this->_return('1', '请选择分类');
         }
-        if(!$content){
+        if(!$data['content']){
             return $this->_return('1', '请输入文章内容');
         }
 
@@ -112,13 +112,6 @@ class ArticleController extends CommonController
                 DB::rollBack();
                 return $this->_return('1', '保存文章失败');
             }
-
-            $contentData = array('article_id'=>$id, 'content'=>$content);
-            $res = Content::create($contentData);
-            if(!$res){
-                DB::rollBack();
-                return $this->_return('1', '保存文章内容失败');
-            }
         }else{
             $data['modify_time'] = time();
             $res = Article::where('id', $id)->update($data);
@@ -132,20 +125,6 @@ class ArticleController extends CommonController
             if(!$res){
                 DB::rollBack();
                 return $this->_return('1', '更新文章标签失败');
-            }
-
-            //判断原来是否有文章内容，没有添加，有更新
-            $con = Content::where('article_id', $id)->first();
-            if($con){
-                $res = Content::where('article_id', $id)->update(array('content'=>$content));
-            }else{
-                $contentData = array('article_id'=>$id, 'content'=>$content);
-                $res = Content::create($contentData);
-            }
-
-            if(!$res){
-                DB::rollBack();
-                return $this->_return('1', '保存文章内容失败');
             }
         }
 

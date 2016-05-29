@@ -25,7 +25,7 @@ class CategoryController extends CommonController
      * @param int $id
      */
     public function edit(Category $category, $id=0){
-        $data = array();
+        $data = array('thumb'=>'');
         if($id){
             $data = Category::whereIn('status', array(0,1))->find($id)->toArray();
             if(!$data){
@@ -59,6 +59,7 @@ class CategoryController extends CommonController
         $data['keywords'] = isset($input['keywords']) ? trim($input['keywords']) : '';
         $data['description'] = isset($input['description']) ? trim($input['description']) : '';
         $data['status'] = isset($input['status']) ? intval($input['status']) : 1;
+        $data['thumb'] = isset($input['thumb']) ? trim($input['thumb']) : 1;
         $id = isset($input['id']) ? intval($input['id']) : 1;
 
         if(!$data['name']){
@@ -79,6 +80,10 @@ class CategoryController extends CommonController
                 }
             }
         }
+
+        /*if(!$data['thumb']){
+            return $this->_return('1', '请上传缩略图');
+        }*/
 
         if(!in_array($data['status'], array(0,1))){
             $data['status'] = 1;

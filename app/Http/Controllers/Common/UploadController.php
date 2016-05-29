@@ -20,7 +20,7 @@ class UploadController extends Controller
         return $this->upload('link', $request);
     }
 
-    public function articleImg(Request $request){
+    public function thumb(Request $request){
         return $this->upload('article', $request);
     }
     /**
@@ -59,7 +59,7 @@ class UploadController extends Controller
 
         $res = $file->move($destinationPath, $filename);
         if($res){
-            $url = $destinationPath.$filename;
+            $url = url('/').'/'.$destinationPath.$filename;
             return json_encode(array('status'=>0, 'msg'=>'success', 'data'=>array('url'=>$url)));
         }else{
             return json_encode(array('status'=>1, 'msg'=>'上传失败，请稍后重试'));

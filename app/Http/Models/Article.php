@@ -9,7 +9,7 @@ class Article extends Model
     public $timestamps = false;
     protected $table = 'article';
     protected $fillable = array('name', 'keywords', 'description', 'category_id', 'thumb', 'status', 'create_time',
-        'modify_time', 'publish_time', 'delete_time', 'view_count', 'is_reprint', 'reprint_url');
+        'modify_time', 'publish_time', 'delete_time', 'view_count', 'is_reprint', 'reprint_url', 'content');
 
     public function tags(){
         return $this->hasMany('App\Http\Models\ArticleTag');
@@ -19,9 +19,6 @@ class Article extends Model
         return $this->belongsTo('App\Http\Models\category', 'category_id', 'id');
     }
 
-    public function content(){
-        return $this->hasOne('App\Http\Models\Content');
-    }
 
 
 }

@@ -63,7 +63,7 @@
                         </div>
                     </div>
 
-                   <div class="hr-line-dashed"></div>
+                    <div class="hr-line-dashed"></div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">缩略图</label>
 
@@ -89,8 +89,8 @@
                         <label class="col-sm-2 control-label">文章内容</label>
                         <div class="col-sm-8">
                             <script id="editor" type="text/plain" style="height:500px;">
-                                @if($id && $data->content)
-                                    {!! $data->content->content !!}
+                                @if($id && $data['content'])
+                                    {!! $data['content'] !!}
                                 @endif
                             </script>
                         </div>
@@ -236,7 +236,7 @@
 
         //上传图片
         function uploadImg(){
-            var url = "{{url('upload/articleImg')}}";
+            var url = "{{url('upload/thumb')}}";
             $.ajaxFileUpload({
                 url:url,
                 secureuri:false,
@@ -246,7 +246,6 @@
                     if(response.status==0){
                         var url = response.data.url;
                         $('.thumb').val(url);
-                        url = "{{asset('')}}"+url;
                         $('.thumb-box').show().find('img').attr('src', url);
                         $('.thumb-input-box').hide();
                     }else{

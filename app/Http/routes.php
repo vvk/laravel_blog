@@ -115,5 +115,5 @@ Route::group(['middleware' => ['web', 'auth'], 'prefix'=>'admin', 'namespace'=>'
 
 //图片上传
 Route::post('/upload/linkImg', 'Common\UploadController@linkImg');
-Route::post('/upload/articleImg', 'Common\UploadController@articleImg');
+Route::post('/upload/thumb', 'Common\UploadController@thumb');
 

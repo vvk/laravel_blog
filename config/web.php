@@ -10,4 +10,8 @@ return [
     'option_type'      => array('1'=>'基本配置', '2'=>"显示配置"),
     'option_form_type'=> array('1'=>'input', '2'=>"checkbox", '3'=>'textarea'),
 
+    //主题
+    'theme' => 'dux',
+
+
 ];
