@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +32,14 @@ Route::group(['middleware' => ['web']], function(){
     Route::post('admin/user/authenticate', 'Admin\UserController@authenticate');
 });
 
+//前台路由
+Route::group(['namespace'=>'Home'], function(){
+    Route::get('/', 'IndexController@index');
+
+    Route::get('category/{id}', 'CategoryController@index');
+
+
+});
 
 Route::group(['middleware' => ['web', 'auth'], 'prefix'=>'admin', 'namespace'=>'Admin'], function () {
 

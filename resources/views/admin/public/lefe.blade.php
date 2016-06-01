@@ -6,7 +6,7 @@
             <li class="nav-header" style="padding: 10px 25px">
                 <div class="dropdown profile-element">
                     <a href="{{url('admin')}}">
-                        <img class="img-circle" src="{{asset('static/img/profile.jpg')}}" style="width: 65px" />
+                        <img class="img-circle" src="{{asset('static/image/profile.jpg')}}" style="width: 65px" />
                     </a>
                     <a href="{{url('admin/user/logout')}}" class="logout glyphicon glyphicon-log-out" style="margin-left: 15px" title="退出"></a>
                 </div>

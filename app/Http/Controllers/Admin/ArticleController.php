@@ -21,9 +21,9 @@ class ArticleController extends CommonController
         }
 
         if($status==-1){
-            $data = $article::whereIn('status', array(0, 1, 2))->paginate(20);
+            $data = $article::whereIn('status', array(0, 1, 2))->orderBy('publish_time', 'desc')->paginate(20);
         }else{
-            $data = $article::where('status', $status)->paginate(20);
+            $data = $article::where('status', $status)->orderBy('publish_time', 'desc')->paginate(20);
         }
 
         $breadcrumb = array('文章管理', '文章列表');
@@ -120,11 +120,13 @@ class ArticleController extends CommonController
                 return $this->_return('1', '更新文章失败');
             }
 
-            //删除原标签
-            $res = ArticleTag::where('article_id', $id)->delete();
-            if(!$res){
-                DB::rollBack();
-                return $this->_return('1', '更新文章标签失败');
+            //存在标签则删除
+            if(ArticleTag::where('article_id', $id)->first()){
+                $res = ArticleTag::where('article_id', $id)->delete();
+                if(!$res){
+                    DB::rollBack();
+                    return $this->_return('1', '更新文章标签失败');
+                }
             }
         }
 
