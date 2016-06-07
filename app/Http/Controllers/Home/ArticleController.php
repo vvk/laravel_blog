@@ -13,6 +13,12 @@ use App\Http\Models\Article;
 class ArticleController extends CommonController
 {
 
+    protected $tag;
+    public function __construct(Tag $tag) {
+        parent::__construct();
+        $this->tag = $tag;
+    }
+
     public function index(Request $request,$id=0){
         $url = $request->fullUrl();
 
@@ -45,7 +51,9 @@ class ArticleController extends CommonController
             $tags = Tag::whereIn('id', $tagId)->where('status', 1)->get()->toArray();
         }
 
-        return Response::render('article.article', compact('hotArticle', 'data', 'url', 'relevanceArticle', 'tags', 'recommendArticle'));
+        $allTags = $this->tag->getAllTags();
+
+        return Response::render('article.article', compact('hotArticle', 'data', 'url', 'relevanceArticle', 'tags', 'recommendArticle', 'allTags'));
     }
 
 }

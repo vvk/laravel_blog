@@ -35,8 +35,11 @@
                 @endif
 
                 <div class="title">
-                    <h3>@if(isset($cuttentCategory) && $cuttentCategory)
-                            {{$cuttentCategory->name}}
+                    <h3>
+                        @if(isset($s) && $s)
+                            搜索：{{$s}}
+                        @elseif(isset($cuttentCategory) && $cuttentCategory)
+                            分类：{{$cuttentCategory->name}}
                         @elseif(isset($tagInfo) && $tagInfo)
                             标签：{{$tagInfo->name}}
                         @else 最新发布

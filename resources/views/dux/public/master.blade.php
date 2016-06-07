@@ -30,10 +30,7 @@
 <footer class="footer">
     <div class="container">
         <div class="fcode">	该块显示在网站底部版权上方，可已定义放一些链接或者图片之类的内容。</div>
-        <p>© 2016
-            <a href="http://demo.themebetter.com/dux">DUX主题演示</a> &nbsp;
-            <a href="http://demo.themebetter.com/dux/sitemap.xml">网站地图</a>
-        </p>
+        <p>Copyright © 2016 龙卷风</p>
         <div class="hide">网站统计代码可以放在这</div>
     </div>
 </footer>

@@ -12,6 +12,7 @@ use Cookie;
 class CategoryController extends CommonController
 {
     public function index(Tag $tag, $id){
+
         //判断分类是否存在
         $cuttentCategory = Category::where('id', $id)->where('status', 1)->select('name')->first();
         if(!$cuttentCategory){
@@ -32,6 +33,8 @@ class CategoryController extends CommonController
 
         $allTags = $tag->getAllTags();
 
-        return Response::render('index.index', compact('data', 'hotArticle', 'recommendArticle', 'hotTags', 'cuttentCategory', 'allTags'));
+        $page = $data->render();
+
+        return Response::render('index.index', compact('data', 'page','hotArticle', 'recommendArticle', 'hotTags', 'cuttentCategory', 'allTags'));
     }
 }

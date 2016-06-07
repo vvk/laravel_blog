@@ -47,6 +47,8 @@ class TagController extends CommonController
 
         $allTags = $this->tag->getAllTags();
 
-        return Response::render('index.index', compact('data', 'hotArticle', 'recommendArticle', 'hotTags', 'allTags', 'tagInfo'));
+        $page = $data->render();
+
+        return Response::render('index.index', compact('data', 'page', 'hotArticle', 'recommendArticle', 'hotTags', 'allTags', 'tagInfo'));
     }
 }

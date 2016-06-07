@@ -31,5 +31,5 @@
 <!-- 文章 end -->
 
 <div class="pagination">
-    {!! $data->links() !!}
+    {!! $page !!}
 </div>

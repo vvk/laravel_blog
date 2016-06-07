@@ -79,13 +79,13 @@
         </div>
 
         <aside class="sidebar">
-            <div class="widget widget_ui_textasb" style="top: 0px;">
+            {{--<div class="widget widget_ui_textasb" style="top: 0px;">
                 <a class="style02" href="">
                     <strong>吐血推荐</strong>
                     <h2>DUX主题 新一代主题</h2>
                     <p>DUX Wordpress主题是大前端当前使用主题，是大前端积累多年Wordpress主题经验设计而成；更加扁平的风格和干净白色的架构会让网站显得内涵而出色...</p>
                 </a>
-            </div>
+            </div>--}}
 
             @include('dux.public.right_recommend_article')
 
@@ -106,42 +106,16 @@
             </div>
             <!-- 最新评论 end -->
 
-            <!-- 热门标签 start -->
-            <div class="widget widget_ui_tags">
-                <h3>热门标签</h3>
-                <div class="items">
-                    <a href="">融资 (2)</a>
-                    <a href="">移动支付 (2)</a>
-                    <a href="">app (2)</a>
-                    <a href="">亚马逊 (1)</a>
-                    <a href="">机器学习 (1)</a>
-                    <a href="">Airbnb (1)</a>
-                    <a href="">Facebook (1)</a>
-                    <a href="">团购 (1)</a>
-                    <a href="">拼班 (1)</a>
-                    <a href="">辅导班 (1)</a>
-                    <a href="">潜水 (1)</a>
-                    <a href="">头盔 (1)</a>
-                    <a href="">智能手机壳 (1)</a>
-                    <a href="">三星 (1)</a>
-                    <a href="">win10 (1)</a>
-                    <a href="">飞行器 (1)</a>
-                    <a href="">背包 (1)</a>
-                    <a href="">芯片 (1)</a>
-                    <a href="">金融 (1)</a>
-                    <a href="f">3D 扫描 (1)</a>
-                    <a href="">家教 (1)</a>
-                    <a href="">时间 (1)</a>
-                    <a href="">时差 (1)</a>
-                    <a href="">快的 (1)</a>
-                    <a href="6">滴滴打车 (1)</a>
-                    <a href="">浏览器 (1)</a>
-                    <a href="">移动 (1)</a>
-                    <a href="">iPhone (1)</a>
-                    <a href="">ios (1)</a>
+            @if(isset($allTags) && $allTags)
+                <div class="widget widget_ui_tags">
+                    <h3>标签云</h3>
+                    <div class="items">
+                        @foreach($allTags as $item)
+                            <a href="{{url('tag/'.$item['name'])}}">{{$item['name']}} ({{$item['count']}})</a>
+                        @endforeach
+                    </div>
                 </div>
-            </div>
-            <!-- 热门标签 end -->
+            @endif
 
             <!-- 最近访客 start -->
             <div class="widget widget_ui_readers">
