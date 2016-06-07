@@ -50,6 +50,15 @@ class TagController extends CommonController {
             $status = 1;
         }
 
+        //检测标签是否存在
+        $query = Tag::where('name', $name);
+        if($id){
+            $query->where('id', '!=', $id);
+        }
+        if($query->first()){
+            return $this->_return('11', '标签'.$name.'已存在');
+        }
+
         $data['name'] = $name;
         $data['status'] = $status;
 

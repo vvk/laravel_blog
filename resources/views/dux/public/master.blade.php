@@ -41,7 +41,7 @@
 @section('js')
 <script>
     window.jsui={
-        uri: './static/',
+        uri: '/static/',
         ver:'1.0',
         roll: ["1","2"]
     };

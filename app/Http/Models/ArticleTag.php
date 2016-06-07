@@ -14,4 +14,5 @@ class ArticleTag extends Model
         return $this->belongsTo('App\Http\Models\Article');
     }
 
+
 }

@@ -5,6 +5,7 @@
         <div class="content-wrap">
             <div class="content">
 
+                @if(!isset($cuttentCategory) && !isset($tagInfo))
                 <!-- 轮播图 start -->
                 <div id="focusslide" class="carousel slide" data-ride="carousel" style="touch-action: pan-y; -webkit-user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
                     <ol class="carousel-indicators">
@@ -31,63 +32,30 @@
                     </a>
                 </div>
                 <!-- 轮播图 end -->
+                @endif
 
-                <article class="excerpt-minic excerpt-minic-index">
-                    <h2>
-                        <a class="red" href="">【今日观点】</a>
-                        <a href="" title="从下载看我们该如何做事-DUX主题演示">从下载看我们该如何做事</a>
-                    </h2>
-                    <p class="note">一次我下载几部电影，发现如果同时下载多部要等上几个小时，然后我把最想看的做个先后排序，去设置同时只能下载一部，结果是不到一杯茶功夫我就能看到最想看的电影。 这就像我们一段时间内想干成很多事情，是同时干还是有选择有顺序的干，结果很不一样。同时...</p>
-                </article>
                 <div class="title">
-                    <h3>最新发布</h3>
-                    <div class="more">
-                        <a href="">热门标签</a><a href="http://daqianduan.com/">大前端</a>
-                        <a href="">themebetter</a>
-                        <a href="">见识多</a>
-                    </div>
+                    <h3>@if(isset($cuttentCategory) && $cuttentCategory)
+                            {{$cuttentCategory->name}}
+                        @elseif(isset($tagInfo) && $tagInfo)
+                            标签：{{$tagInfo->name}}
+                        @else 最新发布
+                        @endif
+                    </h3>
+
+                    @if($hotTags)
+                        <div class="more">
+                            <span><i class="fa fa-tags"></i> 热门标签：</span>
+                            @foreach($hotTags as $item)
+                                <a href="{{url('tag/'.$item->name)}}">{{$item->name}}</a>
+                            @endforeach
+                        </div>
+                    @endif
                 </div>
 
-                <!-- 文章 start -->
-                <div class="article-list">
-                    @foreach($data as $item)
-                        <article class="excerpt">
-                            <a class="focus" href="detail.html">
-                                <div style="transitionAll-box">
-                                    <img src="{{asset('static/image/grey.gif')}}" data-original="{{asset($item->thumb)}}" class="thumb lazy transitionAll" alt="">
-                                </div>
-                            </a>
-                            <div>
-                                <header>
-                                    <a class="cat" href="{{url('category/'.$item->category->id)}}.html">{{$item->category->name}}<i></i></a>
-                                    <h2>
-                                        <a href="" title="">{{$item->name}}}</a>
-                                    </h2>
-                                </header>
-                                <p class="meta">
-                                    <time><i class="fa fa-clock-o"></i>{{date('Y-m-d', $item->publish_time)}}</time>
-                                    <span class="author"><i class="fa fa-user"></i>sunwq</span>
-                                    {{--<a class="pc" href=""><i class="fa fa-comments-o"></i>评论(0)</a>--}}
-                                </p>
-                                <p class="note">本主题支持手机端视频播放，如不能播放请检测手机是否安装播放视频插件flash，插入视频请复制视频网站上的HTML代码，如 &lt;embed src="http://player.youku.com/player.php/sid/XMTM4...</p>
-                            </div>
-                        </article>
-                    @endforeach
 
+                @include('dux.public.article_list')
 
-                </div>
-                <!-- 文章 end -->
-
-                <div class="pagination">
-                    {{--<ul>--}}
-                        {{--<li class="prev-page"><a href="">上一页</a></li>--}}
-                        {{--<li><a href="">1</a></li>--}}
-                        {{--<li class="active"><span>2</span></li>--}}
-                        {{--<li class="next-page"></li>--}}
-                        {{--<li><span>共 2 页</span></li>--}}
-                    {{--</ul>--}}
-                    {!! $data->links() !!}
-                </div>
             </div>
         </div>
 
@@ -97,7 +65,7 @@
             <div class="widget widget-tops affix-top" style="top: 0px;">
                 <ul class="widget-nav">
                     <li class="active">网站公告</li>
-                    <li class="">会员中心</li>
+                    <li class="">联系我</li>
                 </ul>
                 <ul class="widget-navcontent">
                     <li class="item item-01 active">
@@ -117,103 +85,23 @@
                         </ul>
                     </li>
                     <li class="item item-02">
-                        <h4>需要登录才能进入会员中心</h4>
-                        <p>
-                            <a href="javascript:;" class="btn btn-primary signin-loader">立即登录</a>
-                            <a href="javascript:;" class="btn btn-default signup-loader">现在注册</a>
-                        </p>
+                        <h3>如有疑问,请留言或邮件咨询<br/><a href="mailto:sunwq@sviping.com">sunwq@sviping.com</a></h3>
                     </li>
                 </ul>
             </div>
             <!-- 网站公告、会员中心 end -->
 
-            <div class="widget widget_ui_textasb" style="top: 0px;">
+            {{--<div class="widget widget_ui_textasb" style="top: 0px;">
                 <a class="style02" href="">
                     <strong>吐血推荐</strong>
                     <h2>DUX主题 新一代主题</h2>
                     <p>DUX Wordpress主题是大前端当前使用主题，是大前端积累多年Wordpress主题经验设计而成；更加扁平的风格和干净白色的架构会让网站显得内涵而出色...</p>
                 </a>
-            </div>
+            </div>--}}
 
-            <!-- 置顶推荐 start -->
-            <div class="widget widget_ui_posts">
-                <h3>置顶推荐</h3>
-                <ul>
-                    <li>
-							<span class="thumbnail">
-								<a href="">
-                                    <img src="./image/16-220x105.jpg" alt="" class="thumb transitionAll ">
-                                </a>
-							</span>
-                        <span class="text"><a href="">Matterport 获 3000 万美元融资</a></span>
-                        <span class="muted">2015-06-27</span>
-                        <span class="muted">评论()</span>
-                    </li>
-                    <li>
-							<span class="thumbnail">
-								<a href="">
-                                    <img src="./image/1-220x132.png" alt="" class="thumb transitionAll">
-                                </a>
-							</span>
-                        <span class="text"><a href="">什么样的芯片才配被博物馆永久收藏？</a></span>
-                        <span class="muted">2015-06-27</span>
-                        <span class="muted">评论()</span>
-                    </li>
-                    <li>
-							<span class="thumbnail">
-								<a href="">
-                                    <img src="./image/1-220x132.png" alt="" class="thumb transitionAll">
-                                </a>
-							</span>
-                        <span class="text"><a href="">什么样的芯片才配被博物馆永久收藏？</a></span>
-                        <span class="muted">2015-06-27</span>
-                        <span class="muted">评论()</span>
-                    </li>
-                    <li>
-							<span class="thumbnail">
-								<a href="">
-                                    <img src="./image/1-220x132.png" alt="" class="thumb transitionAll">
-                                </a>
-							</span>
-                        <span class="text"><a href="">什么样的芯片才配被博物馆永久收藏？</a></span>
-                        <span class="muted">2015-06-27</span>
-                        <span class="muted">评论()</span>
-                    </li>
-                </ul>
-            </div>
-            <!-- 置顶推荐 end -->
+            @include('dux.public.right_recommend_article')
 
-            <div class="widget widget_ui_posts">
-                <h3>热门文章</h3>
-                <ul>
-                    <li>
-                        <!-- <span class="thumbnail">
-                            <a href="">
-                                <img src="{{asset('static/image/111-220x147.jpg')}}" alt="" class="thumb transitionAll">
-                            </a>
-                        </span> -->
-                        <span class="text"><a href="">什么样的芯片才配被博物馆永久收藏？</a></span>
-                        <span class="muted">2015-06-27</span>
-                        <span class="muted">评论()</span>
-                    </li>
-                    <li>
-							<span class="thumbnail">
-								<a href="">
-                                    <img src="{{asset('static/image/111-220x147.jpg')}}" alt="" class="thumb transitionAll">
-                                </a>
-							</span>
-                        <span class="text"><a href="">什么样的芯片才配被博物馆永久收藏？</a></span>
-                        <span class="muted">2015-06-27</span>
-                        <span class="muted">评论()</span>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="widget widget_ui_ads">
-                <div class="item">
-                    <a href=""><img src="./image/asb-01.jpg" /></a>
-                </div>
-            </div>
+            @include('dux.public.right_hot_article')
 
             <!-- 最新评论 start -->
             <div class="widget widget_ui_comments">
@@ -222,21 +110,16 @@
             </div>
             <!-- 最新评论 end -->
 
+            @if(isset($allTags) && $allTags)
             <div class="widget widget_ui_tags">
-                <h3>热门标签</h3>
+                <h3>标签云</h3>
                 <div class="items">
-                    <a href="">融资 (2)</a>
-                    <a href="">移动支付 (2)</a>
-                    <a href="">app (2)</a>
-                    <a href="">亚马逊 (1)</a>
-                    <a href="">机器学习 (1)</a>
-                    <a href="">Airbnb (1)</a>
-                    <a href="">浏览器 (1)</a>
-                    <a href="">移动 (1)</a>
-                    <a href="">iPhone (1)</a>
-                    <a href="">ios (1)</a>
+                    @foreach($allTags as $item)
+                    <a href="{{url('tag/'.$item['name'])}}">{{$item['name']}} ({{$item['count']}})</a>
+                    @endforeach
                 </div>
             </div>
+            @endif
 
             <!-- 最近访客 start -->
             <div class="widget widget_ui_readers">
@@ -265,7 +148,6 @@
             || document.getElementsByTagName('body')[0]).appendChild(ds);
         })();
     </script>
-
 
 @endsection
 

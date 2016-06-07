@@ -36,8 +36,10 @@ Route::group(['middleware' => ['web']], function(){
 Route::group(['namespace'=>'Home'], function(){
     Route::get('/', 'IndexController@index');
 
-    Route::get('category/{id}', 'CategoryController@index');
-
+    Route::get('category/{id}', 'CategoryController@index')->where('id', '\d+');
+    Route::get('archives/{id}', 'ArticleController@index')->where('id','\d+');
+    Route::get('tag/', 'TagController@index');
+    Route::get('tag/{tag}', 'TagController@tag');
 
 });
 

@@ -1,7 +1,7 @@
 <header class="header">
     <div class="container">
         <h1 class="logo">
-            <a href="" title=""><img src="{{asset('static/image/logo.png')}}">DUX主题演示</a>
+            <a href="{{url('')}}" title=""><img src="{{asset('static/image/logo.png')}}">DUX主题演示</a>
         </h1>
         <div class="brand">我不生产代码<br>我只是代码的搬运工</div>
         <ul class="site-nav site-navbar">
@@ -58,9 +58,9 @@
                     </ul>
                 </li>
             </ul>
-            <a href="javascript:;" class="signin-loader">Hi, 请登录</a>&nbsp; &nbsp;
+            {{--<a href="javascript:;" class="signin-loader">Hi, 请登录</a>&nbsp; &nbsp;
             <a href="javascript:;" class="signup-loader">我要注册</a>&nbsp; &nbsp;
-            <a href="">找回密码</a>
+            <a href="">找回密码</a>--}}
         </div>
         <i class="fa fa-bars m-icon-nav"></i>
     </div>

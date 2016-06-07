@@ -44,6 +44,18 @@
 
                     <div class="hr-line-dashed"></div>
                     <div class="form-group">
+                        <label class="col-sm-2 control-label">是否推荐</label>
+                        <div class="col-sm-3">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" class="checkbox recommend" @if($id!=0 && $data['recommend']==1) checked @endif name="recommend">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
                         <label class="col-sm-2 control-label">是否为转载</label>
                         <div class="col-sm-3">
                             <div class="checkbox">
@@ -183,6 +195,11 @@
                 }
             });
 
+            var recommend = 0;
+            if($('.recommend').is(':checked')){
+                recommend=  1;
+            }
+
             var content = UE.getEditor('editor').getContent();
 
             if(!name){
@@ -198,7 +215,7 @@
                 return false;
             }
 
-            var data = {id:id, category_id:category_id, is_reprint:is_reprint, reprint_url:reprint_url, name:name, keywords:keywords, description:description,thumb:thumb, _token:_token, status:status, tag:tag, content:content};
+            var data = {id:id, category_id:category_id, is_reprint:is_reprint, reprint_url:reprint_url, name:name, keywords:keywords, description:description,thumb:thumb, _token:_token, status:status, tag:tag, content:content,recommend:recommend};
 
             var url = "{{url('admin/article/store')}}";
             $.ajax({

@@ -24,6 +24,7 @@
                 <th>分类</th>
                 <th>状态</th>
                 <th>浏览量</th>
+                <th>是否推荐</th>
                 <th>是否为转载</th>
                 <th>创建时间</th>
                 <th>修改时间</th>
@@ -40,6 +41,7 @@
                             <td>{{$item->category->name}}</td>
                             <td>{{config('web.article_status')[$item->status]}}</td>
                             <td>{{$item->view_count}}</td>
+                            <td>@if($item->recommend==1)是@else否@endif</td>
                             <td>@if($item->is_reprint==1)是@else否@endif</td>
                             <td>{{date('Y-m-d H:i:s', $item->create_time)}}</td>
                             <td>

@@ -73,6 +73,7 @@ class ArticleController extends CommonController
         $data['description'] = $request->input('description', '');
         $data['thumb'] = $request->input('thumb', '');
         $data['status'] = $request->input('status', 0);
+        $data['recommend'] = $request->input('recommend', 0);
         $data['is_reprint'] = $request->input('is_reprint', 0);
         $data['reprint_url'] = $request->input('reprint_url', '');
         $data['content'] = $request->input('content', '');
