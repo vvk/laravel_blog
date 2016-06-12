@@ -5,10 +5,14 @@
         </h1>
         <div class="brand">我不生产代码<br>我只是代码的搬运工</div>
         <ul class="site-nav site-navbar">
-            <li class="current-menu-item">
+            <li class="">
                 <a href=""><i class="fa fa-home"></i> 首页</a>
             </li>
             <li class="">
+                <a href="{{url('category/2')}}"><i class="fa fa-code"></i> PHP</a>
+            </li>
+
+            {{--<li class="current-menu-item">
                 <a href=""><i class="fa fa-plug"></i> 科技</a>
             </li>
             <li class="">
@@ -26,17 +30,17 @@
                     <li><a href="no-sidebar.html">无边栏页面</a></li>
                     <li><a href="tag.html">标签云</a></li>
                 </ul>
-            </li>
+            </li>--}}
             <li class="navto-search">
                 <a href="javascript:;" class="search-show active"><i class="fa fa-search"></i></a>
             </li>
         </ul>
         <div class="topbar">
             <ul class="site-nav topmenu">
-                <li><a href="tag.html">标签云</a></li>
-                <li><a href="">读者墙</a></li>
-                <li><a href="archives.html">页面存档</a></li>
-                <li><a href="link.html">友情链接</a></li>
+                {{--<li><a href="tag.html">标签云</a></li>--}}
+                {{--<li><a href="">读者墙</a></li>--}}
+                {{--<li><a href="archives.html">页面存档</a></li>--}}
+                {{--<li><a href="link.html">友情链接</a></li>--}}
                 <li class="menusns">
                     <a href="javascript:;">关注本站 <i class="fa fa-angle-down"></i></a>
                     <ul class="sub-menu">

@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
     <meta name="apple-mobile-web-app-title" content="龙卷风">
     <meta http-equiv="Cache-Control" content="no-siteapp">
-    <title>龙卷风</title>
-    <meta name="keywords" content="">
-    <meta name="description" content="">
+    <title>@section('title')@if(isset($title) && $title) {{$title}} - @endif{{$web_title}}@show</title>
+    <meta name="keywords" content="@section('keywords')@if(isset($keywords) && $keywords){{$keywords}}@else{{$web_keywords}}@endif @show">
+    <meta name="description" content="@section('description')@if(isset($description) && $description){{$description}}@else{{$web_description}}@endif @show">
     <link rel="shortcut icon" href="{{asset('favicon.ico')}}">
 
     @section('css')
@@ -29,8 +29,17 @@
 
 <footer class="footer">
     <div class="container">
-        <div class="fcode">	该块显示在网站底部版权上方，可已定义放一些链接或者图片之类的内容。</div>
-        <p>Copyright © 2016 龙卷风</p>
+        <div class="fcode">
+            <div class="friend_link">
+                <ul>
+                    <li><span>友情链接：</span></li>
+                    @foreach($friendLink as $item)
+                        <li><a href="{{$item['url']}}" target="_blank" title="{{$item['description']}}">{{$item['name']}}</a> </li>
+                    @endforeach
+                </ul>
+            </div>
+        </div>
+        <p>Copyright © 2016 龙卷风 All Rights Reserved</p>
         <div class="hide">网站统计代码可以放在这</div>
     </div>
 </footer>

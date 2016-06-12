@@ -74,7 +74,7 @@ body{
 
 .carousel{margin-bottom: 15px;z-index: 0;}
 .carousel-inner .item a{display: block;text-align: center;}
-.carousel-inner .item img{margin: 0 auto;border-radius: 4px;}
+.carousel-inner .item img{margin: 0 auto;border-radius: 4px;width: 820px;height: 200px !important;}
 .carousel-control{width: 40px;height:80px;top:50%;margin-top: -40px;}
 .carousel-control.left, .carousel-control.right{background: none;}
 .carousel-control:hover{background-color: #000;opacity: .5;color: #fff;}
@@ -2361,3 +2361,10 @@ pre.prettyprint.linenums ol li {
     -moz-transform: rotateZ(360deg);
 } 
 /* 多说最新右侧评论 */
+
+
+/* 友情链接 */
+.friend_link ul{display: inline-block}
+.friend_link ul li{display: inline-block;padding: 5px 5px }
+.friend_link ul li:first-child{padding:5px 0;}
+.friend_link ul li a:hover{color: #FF5252}

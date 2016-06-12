@@ -14,13 +14,13 @@
                     </ol>
                     <div class="carousel-inner" role="listbox">
                         <div class="item active">
-                            <a target="_blank" href="">
-                                <img src="{{asset('static/image/hs-xiu.jpg')}}">
+                            <a href="javascription:void(0)">
+                                <img src="{{asset('static/image/8026342089346237804620432608942.jpg')}}">
                             </a>
                         </div>
                         <div class="item">
-                            <a target="_blank" href="">
-                                <img src="{{asset('static/image/hs-xiu(1).jpg')}}">
+                            <a href="javascription:void(0)">
+                                <img src="{{asset('static/image/18647932323025032276.jpg')}}">
                             </a>
                         </div>
                     </div>
@@ -30,6 +30,7 @@
                     <a class="right carousel-control" href="/#focusslide" role="button" data-slide="next">
                         <i class="fa fa-angle-right"></i>
                     </a>
+
                 </div>
                 <!-- 轮播图 end -->
                 @endif
@@ -55,7 +56,6 @@
                         </div>
                     @endif
                 </div>
-
 
                 @include('dux.public.article_list')
 
@@ -140,7 +140,7 @@
 @section('js')
     @parent
 
-    <script type="text/javascript">
+    {{--<script type="text/javascript">
         var duoshuoQuery = {short_name:"sunwq"};
         (function() {
             var ds = document.createElement('script');
@@ -150,7 +150,7 @@
             (document.getElementsByTagName('head')[0]
             || document.getElementsByTagName('body')[0]).appendChild(ds);
         })();
-    </script>
+    </script>--}}
 
 @endsection
 

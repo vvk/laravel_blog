@@ -13,13 +13,23 @@ class IndexController extends CommonController {
         parent::__construct();
     }
 
-    public function index(Tag $tag, Request $request) {
-        $s = $request->input('s');
+    public function index(Request $request, Tag $tag) {
 
-        $query = Article::where('status', 2)->select('id','name','category_id','thumb','publish_time', 'content');
+        $s = $request->input('s');
+        $s = strip_tags($s);
+
+        $query = Article::where('status', 2)->select('id','name','category_id','thumb','publish_time');
+
         if($s){
-            $query->where(DB::raw("(name like '%{$s}%' or content like '%{$s}%')"));
+            $query->where(function($query){
+                $s = strip_tags(trim($_GET['s']));
+                if($s){
+                    $query->where('name', 'like', "%{$s}%")
+                        ->orWhere('content', 'like', "%{$s}%");
+                }
+            });
         }
+
         $data = $query->orderBy('publish_time', 'desc')->paginate(10);
 
         $hotArticle = $this->getHotArticle();
@@ -38,6 +48,8 @@ class IndexController extends CommonController {
             $page = $data->render();
         }
 
-        return Response::render('index.index', compact('data', 'page', 's', 'hotArticle', 'recommendArticle', 'hotTags', 'allTags'));
+        $title = $s;
+
+        return Response::render('index.index', compact('data', 'title', 'page', 's', 'hotArticle', 'recommendArticle', 'hotTags', 'allTags'));
     }
 }

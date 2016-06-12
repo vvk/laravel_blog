@@ -91,14 +91,6 @@
 
             @include('dux.public.right_hot_article')
 
-            <div class="widget widget_ui_ads">
-                <div class="item">
-                    <a href="">
-                        <img src="./image/asb-01.jpg">
-                    </a>
-                </div>
-            </div>
-
             <!-- 最新评论 start -->
             <div class="widget widget_ui_comments">
                 <h3>最新评论</h3>
@@ -133,7 +125,7 @@
 @section('js')
     @parent
 
-    <script type="text/javascript">
+{{--    <script type="text/javascript">
         var duoshuoQuery = {short_name:"sunwq"};
         (function() {
             var ds = document.createElement('script');
@@ -143,6 +135,6 @@
             (document.getElementsByTagName('head')[0]
             || document.getElementsByTagName('body')[0]).appendChild(ds);
         })();
-    </script>
+    </script>--}}
 
 @endsection

@@ -14,7 +14,7 @@ class CategoryController extends CommonController
     public function index(Tag $tag, $id){
 
         //判断分类是否存在
-        $cuttentCategory = Category::where('id', $id)->where('status', 1)->select('name')->first();
+        $cuttentCategory = Category::where('id', $id)->where('status', 1)->select('name','keywords','description')->first();
         if(!$cuttentCategory){
             abort(404);
         }
@@ -35,6 +35,10 @@ class CategoryController extends CommonController
 
         $page = $data->render();
 
-        return Response::render('index.index', compact('data', 'page','hotArticle', 'recommendArticle', 'hotTags', 'cuttentCategory', 'allTags'));
+        $title = $cuttentCategory->name;
+        $keywords = $cuttentCategory->keywords;
+        $description = $cuttentCategory->description;
+
+        return Response::render('index.index', compact('data', 'title', 'keywords', 'description', 'page','hotArticle', 'recommendArticle', 'hotTags', 'cuttentCategory', 'allTags'));
     }
 }

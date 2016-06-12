@@ -52,8 +52,15 @@ class ArticleController extends CommonController
         }
 
         $allTags = $this->tag->getAllTags();
+        $title = $data->name;
+        $keywords = $data->keywords;
+        $description = $data->description;
 
-        return Response::render('article.article', compact('hotArticle', 'data', 'url', 'relevanceArticle', 'tags', 'recommendArticle', 'allTags'));
+        if(!$description){
+            $description = substr(strip_tags($data->content), 0, 210);
+        }
+
+        return Response::render('article.article', compact('hotArticle', 'title', 'keywords', 'description', 'data', 'url', 'relevanceArticle', 'tags', 'recommendArticle', 'allTags'));
     }
 
 }
