@@ -50,6 +50,8 @@ class TagController extends CommonController {
             $status = 1;
         }
 
+        print_r($_POST);
+
         //检测标签是否存在
         $query = Tag::where('name', $name);
         if($id){
@@ -61,12 +63,16 @@ class TagController extends CommonController {
 
         $data['name'] = $name;
         $data['status'] = $status;
+        $data['status'] = 3;
 
         if ($id == 0) {
             $res = Tag::create($data);
         } else {
             $res = Tag::where('id', $id)->update($data);
         }
+
+        print_r($data);
+
 
         if ($res) {
             return $this->_return('0', 'success');

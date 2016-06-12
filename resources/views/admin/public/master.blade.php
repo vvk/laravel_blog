@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit">
     <meta http-equiv="Cache-Control" content="no-siteapp" />
-    <title>孙万庆博客后台管理系统</title>
+    <title>{{config('web.web_site')}}博客后台管理系统</title>
 
     <!--[if lt IE 8]>
     <meta http-equiv="refresh" content="0;ie.html" />

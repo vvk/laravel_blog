@@ -15,10 +15,10 @@ class Tag extends Model
     protected $table = 'tag';
     protected $fillable = array('name', 'status');
 
-    public function __construct() {
+/*    public function __construct() {
         parent::__construct();
         $this->request = new \Illuminate\Support\Facades\Request();
-    }
+    }*/
 
 
     public function post() {
