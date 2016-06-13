@@ -49,7 +49,9 @@ class AppServiceProvider extends ServiceProvider
             $friendLink = Link::where('status', 1)->select('name', 'description', 'url')
                 ->orderBy('link_order', 'desc')->orderBy('id', 'desc')
                 ->limit($limit)->get()->toArray();
-            Cache::put('friend_link', json_encode($friendLink), config('web.friend_link_expire'));
+            if($friendLink){
+                Cache::put('friend_link', json_encode($friendLink), config('web.friend_link_expire'));
+            }
         }else{
             $friendLink = json_decode($friendLink, true);
         }

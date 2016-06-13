@@ -30,14 +30,16 @@
 <footer class="footer">
     <div class="container">
         <div class="fcode">
-            <div class="friend_link">
-                <ul>
-                    <li><span>友情链接：</span></li>
-                    @foreach($friendLink as $item)
-                        <li><a href="{{$item['url']}}" target="_blank" title="{{$item['description']}}">{{$item['name']}}</a> </li>
-                    @endforeach
-                </ul>
-            </div>
+            @if(isset($friendLink) && $friendLink)
+                <div class="friend_link">
+                    <ul>
+                        <li><span>友情链接：</span></li>
+                        @foreach($friendLink as $item)
+                            <li><a href="{{$item['url']}}" target="_blank" title="{{$item['description']}}">{{$item['name']}}</a> </li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
         </div>
         <p>Copyright © 2016 龙卷风 All Rights Reserved</p>
         <div class="hide">网站统计代码可以放在这</div>
