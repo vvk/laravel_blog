@@ -49,7 +49,7 @@ class TagController extends CommonController {
         if (!in_array($status, array(0, 1))) {
             $status = 1;
         }
- 
+
         //检测标签是否存在
         $query = Tag::where('name', $name);
         if($id){
