@@ -24,9 +24,14 @@ class ArticleController extends CommonController
 
         $data = Article::where('id', $id)->where('status', '2')->first();
 
-        //浏览量累加
-        $data->view_count++;
-        $data->save();
+        $type = $request->input('type', '');
+
+        if($type!='view'){
+            //浏览量累加
+            $data->view_count++;
+            $data->save();
+        }
+
 
         //热门文章
         $hotArticle = $this->getHotArticle();
