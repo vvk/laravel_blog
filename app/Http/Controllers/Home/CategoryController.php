@@ -19,7 +19,7 @@ class CategoryController extends CommonController
             abort(404);
         }
 
-        $data = Article::where('status', 2)->select('id','name','category_id','thumb','publish_time', 'content')
+        $data = Article::where('status', 2)->select('id','name','category_id','thumb','publish_time', 'content', 'description')
             ->where('category_id', $id)
             ->orderBy('publish_time', 'desc')->paginate(10);
 

@@ -34,7 +34,7 @@ class TagController extends CommonController
         }, $tagId);
 
         $data = Article::where('status', 2)->whereIn('id', $articleId)
-            ->select('id','name','category_id','thumb','publish_time', 'content')
+            ->select('id','name','category_id','thumb','publish_time', 'content', 'description')
             ->orderBy('publish_time', 'desc')->paginate(10);
 
         $hotArticle = $this->getHotArticle();
