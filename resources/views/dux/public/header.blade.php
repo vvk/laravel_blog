@@ -9,7 +9,7 @@
                 <a href=""><i class="fa fa-home"></i> 首页</a>
             </li>
             <li class="">
-                <a href="{{url('category/2')}}"><i class="fa fa-code"></i> PHP</a>
+                <a href="{{url('category/1')}}"><i class="fa fa-code"></i> PHP</a>
             </li>
 
             {{--<li class="current-menu-item">
