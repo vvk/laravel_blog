@@ -6,7 +6,7 @@
         <div class="brand">我不生产代码<br>我只是代码的搬运工</div>
         <ul class="site-nav site-navbar">
             <li class="">
-                <a href=""><i class="fa fa-home"></i> 首页</a>
+                <a href="{{url('/')}}"><i class="fa fa-home"></i> 首页</a>
             </li>
             <li class="">
                 <a href="{{url('category/1')}}"><i class="fa fa-code"></i> PHP</a>
