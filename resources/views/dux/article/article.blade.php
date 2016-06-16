@@ -125,7 +125,7 @@
 @section('js')
     @parent
 
-{{--    <script type="text/javascript">
+    <script type="text/javascript">
         var duoshuoQuery = {short_name:"sunwq"};
         (function() {
             var ds = document.createElement('script');
@@ -135,6 +135,6 @@
             (document.getElementsByTagName('head')[0]
             || document.getElementsByTagName('body')[0]).appendChild(ds);
         })();
-    </script>--}}
+    </script>
 
 @endsection

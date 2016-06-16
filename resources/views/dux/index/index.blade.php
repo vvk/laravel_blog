@@ -73,7 +73,7 @@
                 <ul class="widget-navcontent">
                     <li class="item item-01 active">
                         <ul>
-                            <li>
+                           {{-- <li>
                                 <time>06-30</time>
                                 <a target="_blank" href="">大前端和阿里百秀背后的团队</a>
                             </li>
@@ -84,7 +84,7 @@
                             <li>
                                 <time>06-30</time>
                                 <a target="_blank" href="">大前端D8主题等其他主题支持wordpress 3.8版本</a>
-                            </li>
+                            </li>--}}
                         </ul>
                     </li>
                     <li class="item item-02">
@@ -140,7 +140,7 @@
 @section('js')
     @parent
 
-    {{--<script type="text/javascript">
+    <script type="text/javascript">
         var duoshuoQuery = {short_name:"sunwq"};
         (function() {
             var ds = document.createElement('script');
@@ -150,7 +150,7 @@
             (document.getElementsByTagName('head')[0]
             || document.getElementsByTagName('body')[0]).appendChild(ds);
         })();
-    </script>--}}
+    </script>
 
 @endsection
 

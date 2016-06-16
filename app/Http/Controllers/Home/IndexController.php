@@ -18,7 +18,7 @@ class IndexController extends CommonController {
         $s = $request->input('s');
         $s = strip_tags($s);
 
-        $query = Article::where('status', 2)->select('id','name','category_id','thumb','publish_time');
+        $query = Article::where('status', 2)->select('id','name','category_id','thumb','publish_time','description');
 
         if($s){
             $query->where(function($query){

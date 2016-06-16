@@ -23,7 +23,14 @@
                     <span class="author"><i class="fa fa-user"></i>sunwq</span>
                     {{--<a class="pc" href=""><i class="fa fa-comments-o"></i>评论(0)</a>--}}
                 </p>
-                <p class="note">{{substr(strip_tags($item->content), 0, 330)}}...</p>
+                <p class="note">
+                    @if($item->description)
+                        {{$item->description}}
+                    @else
+                        {{substr(strip_tags($item->content), 0, 330)}}...
+                    @endif
+
+                </p>
             </div>
         </article>
     @endforeach
