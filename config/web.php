@@ -21,5 +21,8 @@ return [
     //主题
     'theme' => 'dux',
 
+    //统计代码
+    'site_stat_code' => '',
+
 
 ];

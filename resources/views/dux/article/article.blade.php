@@ -9,7 +9,8 @@
                 <header class="article-header">
                     <h1 class="article-title">{{$data->name}}</h1>
                     <div class="article-meta">
-                        <span class="item"><i class="fa fa-clock-o"></i> {{date('Y-m-d H:i:s', $data->publish_time)}}</span>
+                        <span class="item"><i class="fa fa-clock-o"></i> 编辑时间：{{date('Y-m-d H:i:s', $data->modify_time)}}</span>
+                        <span class="item"><i class="fa fa-clock-o"></i> 发布时间：{{date('Y-m-d H:i:s', $data->publish_time)}}</span>
                         <span class="item"><i class="fa fa-eye"></i> 浏览量：{{$data->view_count}}</span>
                         <span class="item"><i class="fa fa-folder"></i> 分类：
                             <a href="{{url('category/'.$data->category->id)}}" rel="category tag">{{$data->category->name}}</a>
@@ -79,14 +80,6 @@
         </div>
 
         <aside class="sidebar">
-            {{--<div class="widget widget_ui_textasb" style="top: 0px;">
-                <a class="style02" href="">
-                    <strong>吐血推荐</strong>
-                    <h2>DUX主题 新一代主题</h2>
-                    <p>DUX Wordpress主题是大前端当前使用主题，是大前端积累多年Wordpress主题经验设计而成；更加扁平的风格和干净白色的架构会让网站显得内涵而出色...</p>
-                </a>
-            </div>--}}
-
             @include('dux.public.right_recommend_article')
 
             @include('dux.public.right_hot_article')

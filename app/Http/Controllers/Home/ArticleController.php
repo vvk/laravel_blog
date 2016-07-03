@@ -20,10 +20,12 @@ class ArticleController extends CommonController
     }
 
     public function index(Request $request,$id=0){
-        $url = $request->fullUrl();
-
         $data = Article::where('id', $id)->where('status', '2')->first();
+        if(!$data){
+            abort(404);
+        }
 
+        $url = $request->fullUrl();
         $type = $request->input('type', '');
 
         if($type!='view'){

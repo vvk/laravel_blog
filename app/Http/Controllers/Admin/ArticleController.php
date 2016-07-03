@@ -101,19 +101,29 @@ class ArticleController extends CommonController
             }
         }
 
-        if($data['status']==2){
-            $data['publish_time'] = time();
-        }
-
         DB::beginTransaction();
         if($id==0){
             $data['create_time'] = time();
+
+            //如果是发布，添加发布时间
+            if($data['status']==2){
+                $data['publish_time'] = time();
+            }
             $id = DB::table('article')->insertGetId($data);
             if(!$id){
                 DB::rollBack();
                 return $this->_return('1', '保存文章失败');
             }
         }else{
+            $art = Article::where('id', $id)->whereIn('status', array(0, 1, 2))->first();
+            if(!$art){
+                return $this->_return('1', '原文件不存在或已删除');
+            }else{
+                if($art->status!=2 && $data['status']==2){
+                    $data['publish_time'] = time();
+                }
+            }
+
             $data['modify_time'] = time();
             $res = Article::where('id', $id)->update($data);
             if(!$res){

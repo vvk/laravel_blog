@@ -130,9 +130,11 @@
                             <input type="hidden" class="_token" name="_token" value="{{csrf_token()}}">
                             <input type="hidden" class="id" name="id" value="{{$id}}">
                             <button class="btn btn-white save" type="button" onclick="history.go(-1)">取消</button>
-                            <button class="btn btn-info save" value="0" type="button">保存草稿</button>
-                            <button class="btn btn-primary save" value="1" type="button">保存不发布</button>
-                            <button class="btn btn-success save" value="2" type="button">保存并发布</button>
+                            @if(!$id ||  $id && $data['status']==0)<button class="btn btn-info save" value="0" type="button">保存草稿</button>@endif
+                            <button class="btn btn-primary save" value="1" type="button">保存</button>
+                            <button class="btn btn-success save" value="2" type="button">
+                                @if($id && $data['status']==2)更新@else发布@endif
+                            </button>
                         </div>
                     </div>
                 </form>
