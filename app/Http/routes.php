@@ -46,6 +46,7 @@ Route::group(['namespace'=>'Home'], function(){
 Route::group(['middleware' => ['web', 'auth'], 'prefix'=>'admin', 'namespace'=>'Admin'], function () {
 
     Route::get('/', 'IndexController@index');
+    Route::get('/sunwq', 'IndexController@index');
     Route::get('/home', 'IndexController@home');
 
     //文章
