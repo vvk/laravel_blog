@@ -14,12 +14,12 @@
                     </ol>
                     <div class="carousel-inner" role="listbox">
                         <div class="item active">
-                            <a href="javascription:void(0)">
+                            <a href="javascript:void(0)">
                                 <img src="{{asset('static/image/8026342089346237804620432608942.jpg')}}">
                             </a>
                         </div>
                         <div class="item">
-                            <a href="javascription:void(0)">
+                            <a href="javascript:void(0)">
                                 <img src="{{asset('static/image/18647932323025032276.jpg')}}">
                             </a>
                         </div>
