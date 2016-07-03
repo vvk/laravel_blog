@@ -53,7 +53,7 @@
 
                             <td>
                                 <a href="{{url('admin/article/edit/')}}/{{$item['id']}}" class="fa fa-edit btn btn-primary btn-sm">&nbsp;修改</a>
-                                <a href="{{url('archives').'/'.$item['id']}}?type=view" target="_blank" class="fa fa-paper-plane-o btn btn-primary btn-sm">&nbsp;修改</a>
+                                <a href="{{url('archives').'/'.$item['id']}}?type=view" target="_blank" class="fa fa-paper-plane-o btn btn-primary btn-sm">&nbsp;查看</a>
                                 <button class="fa fa-trash btn btn-danger btn-sm delete-item" value="{{$item['id']}}">&nbsp;删除</button>
                             </td>
                         </tr>
