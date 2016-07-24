@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Home;
 
+use App\Http\Models\ArticleTag;
 use App\Http\Models\Tag;
 use Illuminate\Http\Request;
 
@@ -52,9 +53,20 @@ class ArticleController extends CommonController
         //相关文章  具有相同标签的文章
         $relevanceArticle = $tags = array();
         if($tagId){
+            $relevanceArticleId = ArticleTag::where('article_id', '!=', $data->id)
+                                    ->whereIn('tag_id', $tagId)->select('article_id')->get();
+
+            $arr = array();
+            if($relevanceArticleId){
+                foreach($relevanceArticleId as $item){
+                    $arr[] = $item->article_id;
+                }
+            }
+
             $relevanceArticle = Article::where('status', 2)
-                ->whereIn('id', $tagId)->select('id','name')->orderBy('view_count', 'desc')
+                ->whereIn('id', $arr)->select('id','name')->orderBy('view_count', 'desc')
                 ->limit(10)->get()->toArray();
+
             $tags = Tag::whereIn('id', $tagId)->where('status', 1)->get()->toArray();
         }
 
