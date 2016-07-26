@@ -41,7 +41,7 @@
                 </div>
             @endif
         </div>
-        <p>Copyright © 2016 龙卷风 All Rights Reserved{!! config('web.site_stat_code') !!}</p>
+        <p>Copyright © 2016 龙卷风 All Rights Reserved  {!! config('web.site_stat_code') !!}</p>
         <div class="hide">网站统计代码可以放在这</div>
     </div>
 </footer>

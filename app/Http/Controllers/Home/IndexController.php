@@ -18,7 +18,7 @@ class IndexController extends CommonController {
         $s = $request->input('s');
         $s = strip_tags($s);
 
-        $query = Article::where('status', 2)->select('id','name','category_id','thumb','publish_time','description');
+        $query = Article::where('status', 2)->select('id','name','category_id','thumb','publish_time','description', 'content');
 
         if($s){
             $query->where(function($query){
@@ -31,6 +31,7 @@ class IndexController extends CommonController {
         }
 
         $data = $query->orderBy('publish_time', 'desc')->paginate(10);
+
 
         $hotArticle = $this->getHotArticle();
 
