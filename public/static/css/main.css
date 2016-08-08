@@ -561,7 +561,7 @@ body{
 .article-content{font-size:15px;line-height:25px;word-wrap:break-word;}
 .article-content img{margin: 5px 0; display:block;max-width:100%;height:auto}
 .article-content h2, .article-content h3, .article-content h4， .article-content h5{padding:10px 0;margin-bottom:18px;color: #555;font-weight:bold;}
-.article-content h2{font-size:18px;font-weight:bold;margin:18px 0;border-bottom: 1px solid #eaeaea;}
+.article-content h2{font-size:18px;font-weight:bold;margin:18px 0;/*border-bottom: 1px solid #eaeaea;*/}
 .article-content h3{font-size:16px;}
 .article-content h4{font-size:15px;}
 .article-content h5{font-size:14px;}
