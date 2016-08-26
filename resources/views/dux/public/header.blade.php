@@ -50,11 +50,6 @@
                             </a>
                         </li>
                         <li>
-                            <a target="_blank" rel="external nofollow" href="http://www.weibo.com/1306149274">
-                                <i class="fa fa-weibo"></i> 微博
-                            </a>
-                        </li>
-                        <li>
                             <a rel="external nofollow" title="sunwq@sviping.com" href="mailto:sunwq@sviping.com">
                                 <i class="fa fa-envelope-o"></i> 邮箱
                             </a>
