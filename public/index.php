@@ -18,7 +18,7 @@
 | loading any of our classes later on. It feels nice to relax.
 |
 */
-
+header('X-Powered-By:sunwq');
 require __DIR__.'/../bootstrap/autoload.php';
 
 /*
@@ -56,3 +56,5 @@ $response = $kernel->handle(
 $response->send();
 
 $kernel->terminate($request, $response);
+
+
