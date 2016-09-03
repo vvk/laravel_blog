@@ -58,6 +58,23 @@
                     </div>
                 @endif
 
+                <div class="article-sibling">
+                    <span class="article-preview"><i class="fa fa-arrow-left"></i>上一篇：
+                        @if($siblingArticle['preview'])
+                            <a href="{{url('archives/'.$siblingArticle['preview']->id)}}">{{$siblingArticle['preview']->name}}</a>
+                        @else
+                            <span class="no-article-sibling">没有了</span>
+                        @endif
+                    </span>
+                    <span class="article-next"><i class="fa fa-arrow-right"></i>下一篇：
+                        @if($siblingArticle['next'])
+                            <a href="{{url('archives/'.$siblingArticle['next']->id)}}">{{$siblingArticle['next']->name}}</a>
+                        @else
+                            <span class="no-article-sibling">没有了</span>
+                        @endif
+                    </span>
+                </div>
+
                 @if($relevanceArticle)
                     <div class="relates">
                         <div class="title">

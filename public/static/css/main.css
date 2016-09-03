@@ -2321,6 +2321,12 @@ pre.prettyprint.linenums ol li {
 -ms-transition: all .3s ease;-o-transition: all .3s ease;}
 .scaleImg{transform:scale(1.04,1.04);-ms-transform:scale(1.04,1.04); -webkit-transform:scale(1.04,1.04);}
 .article-list .transitionAll-box{width:220px;height:150px;overflow:hidden}
+.article-sibling{margin: 15px 0;overflow: hidden;}
+.article-sibling i{color:#666}
+.article-sibling .no-article-sibling{color:#999}
+.article-sibling .article-preview{float: left}
+.article-sibling .article-next{float: right}
+
 
 /* 多说最新右侧评论 */
 .widget_ui_comments #ds-recent-comments li.ds-comment.ds-show-avatars {

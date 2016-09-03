@@ -26,7 +26,7 @@ class ArticleController extends CommonController
             abort(404);
         }
 
-        $url = $request->fullUrl();
+        $url = url()->current();
         $type = $request->input('type', '');
 
         if($type!='view'){
@@ -34,7 +34,6 @@ class ArticleController extends CommonController
             $data->view_count++;
             $data->save();
         }
-
 
         //热门文章
         $hotArticle = $this->getHotArticle();
@@ -50,8 +49,8 @@ class ArticleController extends CommonController
             }
         }
 
-        //相关文章  具有相同标签的文章
-        $relevanceArticle = $tags = array();
+        //相关文章  具有相同标签的文章  上一篇 下一篇
+        $relevanceArticle = $tags = $siblingArticle = array();
         if($tagId){
             $relevanceArticleId = ArticleTag::where('article_id', '!=', $data->id)
                                     ->whereIn('tag_id', $tagId)->select('article_id')->get();
@@ -79,7 +78,10 @@ class ArticleController extends CommonController
             $description = substr(strip_tags($data->content), 0, 210);
         }
 
-        return Response::render('article.article', compact('hotArticle', 'title', 'keywords', 'description', 'data', 'url', 'relevanceArticle', 'tags', 'recommendArticle', 'allTags'));
+        $siblingArticle['preview'] = Article::where('id', '<', $id)->where('status', 2)->select('id', 'name')->orderBy('id', 'desc')->first();
+        $siblingArticle['next'] = Article::where('id', '>', $id)->where('status', 2)->select('id', 'name')->first();
+
+        return Response::render('article.article', compact('hotArticle', 'title', 'keywords', 'description', 'data', 'url', 'relevanceArticle', 'tags', 'recommendArticle', 'allTags', 'siblingArticle'));
     }
 
 }
