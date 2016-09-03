@@ -1975,6 +1975,83 @@ pre.prettyprint.linenums ol li {
 }
 
 
+
+/*
+	++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*/
+.transitionAll{transition: all .3s ease;-webkit-transition: all .3s ease;-moz-transition: all .3s ease;
+	-ms-transition: all .3s ease;-o-transition: all .3s ease;}
+.scaleImg{transform:scale(1.04,1.04);-ms-transform:scale(1.04,1.04); -webkit-transform:scale(1.04,1.04);}
+.article-list .transitionAll-box{width:220px;height:150px;overflow:hidden}
+.article-sibling{margin: 15px 0;overflow: hidden;}
+.article-sibling i{color:#666}
+.article-sibling .no-article-sibling{color:#999}
+.article-sibling .article-preview{float: left}
+.article-sibling .article-next{float: right}
+
+
+/* 多说最新右侧评论 */
+.widget_ui_comments #ds-recent-comments li.ds-comment.ds-show-avatars {
+	padding: 10px 15px 10px 61px !important;
+	display: block;
+	overflow: hidden;
+	position: relative;
+	font-size: 12px;
+	color: #999;
+	line-height: 20px;
+}
+.widget_ui_comments li.ds-comment.ds-show-avatars a{
+	padding: 0;
+	border-bottom:none;
+}
+.widget_ui_comments #ds-recent-comments li.ds-comment{
+	border-top:1px solid #eaeaea;
+}
+.widget_ui_comments #ds-recent-comments li.ds-comment:first-child {
+	border-top:none;
+}
+.widget_ui_comments #ds-recent-comments li.ds-comment .ds-avatar{
+	left: 15px !important;
+	top: 12px !important;
+}
+.widget_ui_comments #ds-recent-comments li.ds-comment .ds-thread-title a{
+	padding-top:0;
+	padding-bottom: 0;
+}
+.widget_ui_comments #ds-recent-comments li.ds-comment .ds-thread-title a:hover{
+	color:#FF5252;
+}
+.widget_ui_comments #ds-recent-comments  .ds-avatar img{
+	border-radius: 50%;
+	box-shadow: inset 0 -1px 0 #3333sf;/*设置图像阴影效果*/
+	-webkit-box-shadow: inset 0 -1px 0 #3333sf;
+	-webkit-transition: 0.4s;
+	-webkit-transition: -webkit-transform 0.4s ease-out;
+	transition: transform 0.4s ease-out;/*变化时间设置为0.4秒(变化动作即为下面的图像旋转360读）*/
+	-moz-transition: -moz-transform 0.4s ease-out;
+}
+.widget_ui_comments #ds-recent-comments  .ds-avatar img:hover{
+	box-shadow: 0 0 10px #fff; rgba(255,255,255,.6), inset 0 0 20px rgba(255,255,255,1);
+	-webkit-box-shadow: 0 0 10px #fff; rgba(255,255,255,.6), inset 0 0 20px rgba(255,255,255,1);
+	transform: rotateZ(360deg);/*图像旋转360度*/
+	-webkit-transform: rotateZ(360deg);
+	-moz-transform: rotateZ(360deg);
+}
+/* 多说最新右侧评论 */
+
+
+/* 友情链接 */
+.friend_link ul{display: inline-block}
+.friend_link ul li{display: inline-block;padding: 5px 5px }
+.friend_link ul li:first-child{padding:5px 0;}
+.friend_link ul li a:hover{color: #FF5252}
+
+/*
+	++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*/
+
+
+
 /*  ======================================================================================================== */
 
 @media (max-width: 1320px) {
@@ -2159,7 +2236,10 @@ pre.prettyprint.linenums ol li {
 
 	.archives-list span{display: none;}
 	.archives h3{font-size: 16px;font-weight: bold;}
-	
+
+	.article-sibling .article-preview,.article-sibling .article-next{display: block;float: left}
+
+
 }
 /*
 @media (max-width: 480px) {
@@ -2316,70 +2396,3 @@ pre.prettyprint.linenums ol li {
 @media (max-width:320px){
 	#navs .item li{width: 49%;}
 }
-
-.transitionAll{transition: all .3s ease;-webkit-transition: all .3s ease;-moz-transition: all .3s ease;
--ms-transition: all .3s ease;-o-transition: all .3s ease;}
-.scaleImg{transform:scale(1.04,1.04);-ms-transform:scale(1.04,1.04); -webkit-transform:scale(1.04,1.04);}
-.article-list .transitionAll-box{width:220px;height:150px;overflow:hidden}
-.article-sibling{margin: 15px 0;overflow: hidden;}
-.article-sibling i{color:#666}
-.article-sibling .no-article-sibling{color:#999}
-.article-sibling .article-preview{float: left}
-.article-sibling .article-next{float: right}
-
-
-/* 多说最新右侧评论 */
-.widget_ui_comments #ds-recent-comments li.ds-comment.ds-show-avatars {
-	padding: 10px 15px 10px 61px !important;
-    display: block;
-    overflow: hidden;
-    position: relative;
-    font-size: 12px;
-    color: #999;
-    line-height: 20px;
-}
-.widget_ui_comments li.ds-comment.ds-show-avatars a{
-	padding: 0;
-	border-bottom:none;
-}
-.widget_ui_comments #ds-recent-comments li.ds-comment{
-	border-top:1px solid #eaeaea;
-}
-.widget_ui_comments #ds-recent-comments li.ds-comment:first-child {
-	border-top:none; 
-}
-.widget_ui_comments #ds-recent-comments li.ds-comment .ds-avatar{
-	left: 15px !important;
-	top: 12px !important;
-}
-.widget_ui_comments #ds-recent-comments li.ds-comment .ds-thread-title a{
-	padding-top:0;
-	padding-bottom: 0; 
-}
-.widget_ui_comments #ds-recent-comments li.ds-comment .ds-thread-title a:hover{
-	color:#FF5252;
-}
-.widget_ui_comments #ds-recent-comments  .ds-avatar img{
-    border-radius: 50%;
-    box-shadow: inset 0 -1px 0 #3333sf;/*设置图像阴影效果*/
-    -webkit-box-shadow: inset 0 -1px 0 #3333sf;
-    -webkit-transition: 0.4s;   
-    -webkit-transition: -webkit-transform 0.4s ease-out;
-    transition: transform 0.4s ease-out;/*变化时间设置为0.4秒(变化动作即为下面的图像旋转360读）*/
-    -moz-transition: -moz-transform 0.4s ease-out;
-}
-.widget_ui_comments #ds-recent-comments  .ds-avatar img:hover{
-	box-shadow: 0 0 10px #fff; rgba(255,255,255,.6), inset 0 0 20px rgba(255,255,255,1);
-    -webkit-box-shadow: 0 0 10px #fff; rgba(255,255,255,.6), inset 0 0 20px rgba(255,255,255,1);
-    transform: rotateZ(360deg);/*图像旋转360度*/
-    -webkit-transform: rotateZ(360deg);
-    -moz-transform: rotateZ(360deg);
-} 
-/* 多说最新右侧评论 */
-
-
-/* 友情链接 */
-.friend_link ul{display: inline-block}
-.friend_link ul li{display: inline-block;padding: 5px 5px }
-.friend_link ul li:first-child{padding:5px 0;}
-.friend_link ul li a:hover{color: #FF5252}
