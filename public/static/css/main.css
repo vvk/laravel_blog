@@ -1987,7 +1987,8 @@ pre.prettyprint.linenums ol li {
 .article-sibling i{color:#666}
 .article-sibling .no-article-sibling{color:#999}
 .article-sibling .article-preview{float: left}
-.article-sibling .article-next{float: right}
+.article-sibling .article-next{float: right;text-align: right}
+.article-sibling > span{width:49%;white-space: nowrap;text-overflow:ellipsis; overflow:hidden; }
 
 
 /* 多说最新右侧评论 */
@@ -2237,9 +2238,8 @@ pre.prettyprint.linenums ol li {
 	.archives-list span{display: none;}
 	.archives h3{font-size: 16px;font-weight: bold;}
 
-	.article-sibling .article-preview,.article-sibling .article-next{display: block;float: left}
-
-
+	.article-sibling > span{display: block;float: left;width: 100%;text-align: left}
+	.article-sibling .article-next{text-align: left;float: left}
 }
 /*
 @media (max-width: 480px) {
