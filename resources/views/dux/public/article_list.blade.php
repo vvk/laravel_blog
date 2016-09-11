@@ -27,9 +27,8 @@
                     @if($item->description)
                         {{$item->description}}
                     @else
-                        {{substr(strip_tags($item->content), 0, 330)}}...
+                        {{str_limit(strip_tags($item->content), 330)}}
                     @endif
-
                 </p>
             </div>
         </article>
