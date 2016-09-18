@@ -299,7 +299,7 @@ body{
 /* title ======================================================================================================== */
 
 
-.title, .pagetitle{margin-bottom: 10px;overflow: hidden;}
+.title, .pagetitle{margin-bottom: 5px;overflow: hidden;padding-bottom:5px}
 .title h3, .pagetitle h1,  .pagetitle h2{font-size: 20px;margin: 0;float: left;}
 .title .more{float: right;position: relative;}
 .title .more a{display: inline-block;color: #999;margin-right: 10px;}
