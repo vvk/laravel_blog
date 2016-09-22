@@ -44,13 +44,15 @@ class Tag extends Model
         return $tags;
     }
 
+    /**
+     * 返回所有使用的标签
+     * @return mixed
+     */
     public function getAllTags(){
-        $data = $this->where('status', 1)->get()->toArray();
-        if($data){
-            foreach($data as $k=>$v){
-                $data[$k]['count'] = DB::table('article_tag')->where('tag_id', $v['id'])->count();
-            }
-        }
+        $data = DB::table('article_tag')->select(DB::raw('name,count(tag_id) as count'))
+            ->join('tag', 'article_tag.tag_id', '=', 'tag.id')
+            ->groupBy('tag_id')->get();
+
         return $data;
     }
 

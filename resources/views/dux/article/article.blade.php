@@ -113,7 +113,7 @@
                     <h3>标签云</h3>
                     <div class="items">
                         @foreach($allTags as $item)
-                            <a href="{{url('tag/'.$item['name'])}}">{{$item['name']}} ({{$item['count']}})</a>
+                            <a href="{{url('tag/'.$item->name)}}">{{$item->name}} ({{$item->count}})</a>
                         @endforeach
                     </div>
                 </div>
