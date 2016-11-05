@@ -27,7 +27,7 @@
                     @if($item->description)
                         {{$item->description}}
                     @else
-                        {{str_limit(strip_tags($item->content), 330)}}
+                        {{str_limit(str_replace(array('&nbsp;', "\r\n", "\r", "\n"), '', strip_tags($item->content)), 270)}}
                     @endif
                 </p>
             </div>

@@ -76,7 +76,8 @@ class ArticleController extends CommonController
 
         $keywords .= ($keywords ? ' - ' : '').config('web.web_keywords');
         if(!$description){
-            $description = str_limit(strip_tags($data->content),360);
+            $description = str_replace(array('&nbsp;', "\r\n", "\r", "\n"), '', strip_tags($data->content));
+            $description = str_limit(strip_tags($description),360);
         }
 
         $siblingArticle['preview'] = Article::where('id', '<', $id)->where('status', 2)->select('id', 'name')->orderBy('id', 'desc')->first();
