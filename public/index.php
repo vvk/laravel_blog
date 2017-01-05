@@ -4,7 +4,7 @@
  * Laravel - A PHP Framework For Web Artisans
  *
  * @package  Laravel
- * @author   Taylor Otwell <taylorotwell@gmail.com>
+ * @author   Taylor Otwell <taylor@laravel.com>
  */
 
 /*
@@ -18,7 +18,7 @@
 | loading any of our classes later on. It feels nice to relax.
 |
 */
-header('X-Powered-By:sunwq');
+
 require __DIR__.'/../bootstrap/autoload.php';
 
 /*
@@ -56,5 +56,3 @@ $response = $kernel->handle(
 $response->send();
 
 $kernel->terminate($request, $response);
-
-
