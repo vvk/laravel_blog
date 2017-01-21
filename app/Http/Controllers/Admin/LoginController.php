@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\LoginRequest;
 use Auth;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends CommonController
 {
@@ -18,12 +19,14 @@ class LoginController extends CommonController
     |
     */
 
+    use AuthenticatesUsers;
+
     /**
      * Where to redirect users after login / registration.
      *
      * @var string
      */
-    protected $redirectTo = '/admin';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -40,8 +43,16 @@ class LoginController extends CommonController
         return view('admin.login.index');
     }
 
-    public function login()
+    public function login(LoginRequest $request)
     {
+        $username = trim($request->input('username'));
+        $password = trim($request->input('password'));
 
+        if (!Auth::attempt(['username' => $username, 'password' => $password])) {
+//            return response()->json(['status'=>1, 'msg'=>'用户名或密码错误']);
+            return ajaxResponse(1, '用户名或密码错误');
+        }
+
+        return response()->json(['status'=>0, 'msg'=>'success']);
     }
 }

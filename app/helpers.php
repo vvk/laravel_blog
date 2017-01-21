@@ -32,3 +32,10 @@ if (!function_exists('app_name')) {
         return config('app.name');
     }
 }
+
+if (! function_exists('ajaxResponse')) {
+    function ajaxResponse($status = 0, $msg = 'success', $data = array())
+    {
+        return response()->json(['status'=>$status, 'msg'=>$msg, 'data'=>$data]);
+    }
+}

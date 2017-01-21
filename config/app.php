@@ -77,7 +77,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'cn',
 
     /*
     |--------------------------------------------------------------------------
@@ -178,6 +178,9 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+
+        Mews\Captcha\CaptchaServiceProvider::class,  //验证码
+
     ],
 
     /*
@@ -225,6 +228,9 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
+
+
+        'Captcha' => Mews\Captcha\Facades\Captcha::class,  //验证码
 
     ],
 

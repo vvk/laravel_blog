@@ -5,6 +5,7 @@ namespace App\Exceptions;
 use Exception;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Validation\ValidationException;
 
 class Handler extends ExceptionHandler
 {
@@ -44,6 +45,10 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        //  默认 ValidationException 异常返回422状态码
+        if ($exception instanceof ValidationException) {
+            return $exception->getResponse()->setStatusCode(200);
+        }
         return parent::render($request, $exception);
     }
 
