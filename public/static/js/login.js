@@ -1,6 +1,6 @@
 $(function () {
     $('.login-btn').click(function () {
-        login();    
+        login();
     })
 
     $('.login-container .username, .login-container .password, .login-container .captcha').keydown(function (e) {

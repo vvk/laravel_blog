@@ -28,7 +28,8 @@ if (! function_exists('includeRouteFiles')) {
 }
 
 if (!function_exists('app_name')) {
-    function app_name() {
+    function app_name()
+    {
         return config('app.name');
     }
 }
@@ -37,5 +38,15 @@ if (! function_exists('ajaxResponse')) {
     function ajaxResponse($status = 0, $msg = 'success', $data = array())
     {
         return response()->json(['status'=>$status, 'msg'=>$msg, 'data'=>$data]);
+    }
+}
+
+if (!function_exists('adminError')) {
+    function adminError ($msg = '')
+    {
+        if (!$msg) {
+            $msg = trans('error.system_error');
+        }
+        return view('admin.public.error', compact('msg'));
     }
 }

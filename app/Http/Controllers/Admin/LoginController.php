@@ -47,12 +47,10 @@ class LoginController extends CommonController
     {
         $username = trim($request->input('username'));
         $password = trim($request->input('password'));
-
         if (!Auth::attempt(['username' => $username, 'password' => $password])) {
-//            return response()->json(['status'=>1, 'msg'=>'用户名或密码错误']);
             return ajaxResponse(1, '用户名或密码错误');
         }
 
-        return response()->json(['status'=>0, 'msg'=>'success']);
+        return ajaxResponse(0, 'success');
     }
 }
