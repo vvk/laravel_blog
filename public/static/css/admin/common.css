@@ -3,3 +3,5 @@
 .crumbs .breadcrumb .breadcrumb-button{display: inline-block;float: right;height: 30px;line-height: 30px;margin-top: -3px}
 
 .pagination .active span, .pagination li a:hover{color:#fff;background: #337ab7}
+
+.help-info{color:#999;padding-left: 5px;}

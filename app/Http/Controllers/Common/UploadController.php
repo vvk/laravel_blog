@@ -11,7 +11,17 @@ class UploadController extends Controller
 {
     public function thumb(Request $request)
     {
-        return $this->upload('article', $request);
+        return $this->upload('thumb', $request);
+    }
+
+    public function banner(Request $request)
+    {
+        return $this->upload('banner', $request);
+    }
+
+    public function image(Request $request)
+    {
+        return $this->upload('image', $request);
     }
 
     /**
@@ -30,11 +40,14 @@ class UploadController extends Controller
         }
 
         switch ($type){
-            case 'link':
-                $path = config('web.link_image_path');
-                break;
-            case 'article':
+            case 'thumb':
                 $path = config('web.thumb_image_path');
+                break;
+            case 'banner':
+                $path = config('web.banner_image_path');
+                break;
+            case 'image':
+                $path = config('web.upload_image_path');
                 break;
         }
 

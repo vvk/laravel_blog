@@ -49,7 +49,7 @@
                             @if($item->modify_time){{date('Y-m-d H:i:s', $item->modify_time)}}@endif
                         </td>
                         <td>
-                            @if($item->status==3 && $item->publish_time){{date('Y-m-d H:i:s', $item->publish_time)}}@endif
+                            @if($item->status==2 && $item->publish_time){{date('Y-m-d H:i:s', $item->publish_time)}}@endif
                         </td>
 
                         <td>
@@ -100,10 +100,10 @@
                 if(!isConfirm){
                     swal({title:"已取消",text:"您取消了删除操作！",type:"error",confirmButtonText:'确定'});
                 }else{
-                    var url = "{{url('admin/article/delete')}}";
+                    var url = "{{url('admin/article/destroy')}}";
                     var data = {id:id,_token:'{!! csrf_token() !!}'}
                     $.ajax({
-                        type:'POST',
+                        type:'DELETE',
                         dataType:'JSON',
                         url:url,
                         data:data,

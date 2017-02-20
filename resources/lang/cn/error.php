@@ -16,5 +16,29 @@ return array(
     'tag_not_empty'    => '标签名称不能为空',
     'delete_tag_not_exist'    => '要删除的标签不存在',
 
+    'article_name_not_empty' => '文章名称不能为空',
+    'article_content_not_empty' => '文章内容不能为空',
+    'article_category_not_empty' => '文章分类不能为空',
+    'reprint_url_not_empty' => '转载文章地址不能为空',
+    'reprint_url_invalid' => '转载文章地址不合法',
+    'article_tag_not_empty' => '请选择文章标签',
+    'modify_article_not_exist' => '要修改的文章不存在',
+    'delete_article_not_exist' => '要删除的文章不存在',
+
+    'rank_format'    => '排序格式错误',
+    'rank_between'    => '排序在:min-:max之间',
+
+    'banner_name_not_empty'    => '轮播图名称不能为空',
+    'banner_image_not_empty'    => '轮播图片不能为空',
+    'modify_banner_not_exist' => '要修改的轮播图不存在',
+    'banner_invalid_rul' => '跳转链接不合法',
+    'banner_delete_not_exist' => '要删除的轮播图不存在',
+
+    'link_name_not_empty' => '友情链接名称不能为空',
+    'link_url_not_empty' => '跳转链接不能为空',
+    'link_url_invalid' => '跳转链接格式不正确',
+    'link_url_exist' => '链接地址已存在',
+    'modify_link_not_exist' => '修改的友情链接不存在',
+    'delete_link_not_exist' => '删除的友情链接不存在',
 
 );

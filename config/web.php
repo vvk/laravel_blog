@@ -10,5 +10,11 @@ return array(
     'web_description'=>'一个集技术文章分享、原创及实际工作中使用的技术与平时工作心得总结的个人博客，我不生产代码，我只是代码的搬运工',
 
 //    1:草稿，2:完成未发布，3:发布
-    'article_status' => array('1'=>'草稿', '2'=>'未发布', '3'=>'已发布'),
+    'article_status' => array('1'=>'未发布', '2'=>'已发布'),
+
+    'link_image_path'  => 'static/upload/link/',
+    'thumb_image_path' => 'static/upload/thumb/',
+    'banner_image_path' => 'static/upload/image/',
+    'upload_image_path' => 'static/upload/image/',
+
 );

@@ -36,13 +36,55 @@ Route::group(['middleware' => ['web', 'admin.auth'], 'prefix'=>'admin', 'namespa
     Route::resource('article', 'ArticleController');
     Route::resource('category', 'CategoryController');
     Route::resource('tag', 'TagController');
+    Route::resource('banner', 'BannerController');
+    Route::resource('link', 'LinkController');
+
+    //ueditor编辑器
+    Route::group(['prefix'=>'ueditor'], function(){
+        Route::get('anchor', 'UeditorController@anchor');
+        Route::get('image', 'UeditorController@image');
+        Route::get('link', 'UeditorController@link');
+        Route::get('spechars', 'UeditorController@spechars');
+        Route::get('searchreplace', 'UeditorController@searchreplace');
+        Route::get('map', 'UeditorController@map');
+        Route::get('gmap', 'UeditorController@gmap');
+        Route::get('video', 'UeditorController@video');
+        Route::get('help', 'UeditorController@help');
+        Route::get('preview', 'UeditorController@preview');
+        Route::get('emotion', 'UeditorController@emotion');
+        Route::get('wordimage', 'UeditorController@wordimage');
+        Route::get('attachment', 'UeditorController@attachment');
+        Route::get('insertframe', 'UeditorController@insertframe');
+        Route::get('edittip', 'UeditorController@edittip');
+        Route::get('edittable', 'UeditorController@edittable');
+        Route::get('edittd', 'UeditorController@edittd');
+        Route::get('webapp', 'UeditorController@webapp');
+        Route::get('snapscreen', 'UeditorController@snapscreen');
+        Route::get('scrawl', 'UeditorController@scrawl');
+        Route::get('music', 'UeditorController@music');
+        Route::get('template', 'UeditorController@template');
+        Route::get('background', 'UeditorController@background');
+        Route::get('charts', 'UeditorController@charts');
+    });
+});
+
+Route::group(['middleware' => ['web'], 'namespace'=>'Home'], function (){
+    Route::get('archives', 'ArticleController@index')->where('id', '\d+')->name('articleDetail');
+
 
 
 });
 
-//图片上传
-Route::post('/upload/linkImg', 'Common\UploadController@linkImg');
-Route::post('/upload/thumb', 'Common\UploadController@thumb');
+
+Route::group(['middleware' => ['web'], 'namespace'=>'Common'], function (){
+    //图片上传
+    Route::post('/upload/linkImg', 'UploadController@linkImg');
+    Route::post('/upload/thumb', 'UploadController@thumb');
+    Route::post('/upload/banner', 'UploadController@banner');
+    Route::post('/upload/image', 'UploadController@image');
+});
+
+
 
 
 Auth::routes();

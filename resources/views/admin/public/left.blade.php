@@ -29,54 +29,6 @@
                     </li>
                 </ul>
             </li>
-
-            <li>
-                <a href="#">
-                    <i class="fa fa-columns"></i>
-                    <span class="nav-label">分类管理</span>
-                    <span class="fa arrow"></span>
-                </a>
-                <ul class="nav nav-second-level">
-                    <li>
-                        <a href="{{asset('admin/category')}}" target="content">分类列表</a>
-                    </li>
-                    <li>
-                        <a href="{{asset('admin/category/add')}}" target="content">添加分类</a>
-                    </li>
-                </ul>
-            </li>
-
-            <li>
-                <a href="#">
-                    <i class="fa fa-tags"></i>
-                    <span class="nav-label">标签管理</span>
-                    <span class="fa arrow"></span>
-                </a>
-                <ul class="nav nav-second-level">
-                    <li>
-                        <a href="{{asset('admin/tag')}}" target="content">标签列表</a>
-                    </li>
-                    <li>
-                        <a href="{{asset('admin/tag/add')}}" target="content">添加标签</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fa fa-link"></i>
-                    <span class="nav-label">友情链接管理</span>
-                    <span class="fa arrow"></span>
-                </a>
-                <ul class="nav nav-second-level">
-                    <li>
-                        <a href="{{asset('admin/link')}}" target="content">友情链接列表</a>
-                    </li>
-                    <li>
-                        <a href="{{asset('admin/link/add')}}" target="content">友情链接标签</a>
-                    </li>
-                </ul>
-            </li>
-
             <li>
                 <a href="#">
                     <i class="fa fa-gear"></i>
@@ -85,13 +37,10 @@
                 </a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="{{asset('admin/option/index/1')}}" target="content">基本设置</a>
+                        <a href="{{asset('admin/banner')}}" target="content">轮播图</a>
                     </li>
                     <li>
-                        <a href="{{asset('admin/option/index/2')}}" target="content">显示设置</a>
-                    </li>
-                    <li>
-                        <a href="{{asset('admin/option/option')}}" target="content">配置列表</a>
+                        <a href="{{asset('admin/link')}}" target="content">友情链接</a>
                     </li>
                 </ul>
             </li>

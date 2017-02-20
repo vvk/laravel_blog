@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Requests\Admin\ArticleRequest;
 use App\Models\Article;
 use App\Models\Category;
+use App\Models\Tag;
+use App\Repositories\Article\ArticleRepository;
 use App\Repositories\Category\CategoryRepository;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -23,11 +26,7 @@ class ArticleController extends Controller
         if ($status) {
             $where['status'] = $status;
         }
-        $data = Article::where($where)->orderBy('publish_time', 'desc')->paginate();
-
-        if ($status) {
-            $data->appends(['status' => $status])->links();
-        }
+        $data = Article::where($where)->whereIn('status', array(1, 2))->orderBy('id', 'desc')->paginate();
 
         $breadcrumb = array('文章管理');
 
@@ -41,10 +40,16 @@ class ArticleController extends Controller
      */
     public function create(CategoryRepository $category)
     {
-        $category = $category->getCategoryTree();
+
+        $data = array();
+        $id = 0;
+
+        $categoryTree['default'] = $categoryTree['list'][] = $category->getCategoryTree();
+
+        $tag = Tag::where('status', 1)->get();
 
         $breadcrumb = array('文章管理', '写文章');
-        return view('admin.article.edit', compact('breadcrumb', 'category'));
+        return view('admin.article.edit', compact('breadcrumb', 'categoryTree', 'data', 'id', 'tag'));
     }
 
     /**
@@ -53,10 +58,9 @@ class ArticleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ArticleRequest $request, ArticleRepository $article)
     {
-
-
+        return $article->store($request);
     }
 
     /**
@@ -76,9 +80,27 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(CategoryRepository $category, $id)
     {
-        //
+        $data = Article::where('id', $id)->whereIn('status', array(1, 2))->first();
+        if (!$data) {
+            return adminError(trans('error.modify_article_not_exist'));
+        }
+
+        $ArticleTagId = $categoryTree = array();
+        foreach ($data->tagId as $item) {
+            $ArticleTagId[] = $item->tag_id;
+        }
+
+        $categoryTree['default'] = $category->getCategoryTree();
+        foreach ($data->category->toArray() as $item) {
+            $categoryTree['list'][] = $category->getCategoryTree(0, $item['id']);
+        }
+        $categoryTree['list'] = array_unique($categoryTree['list']);
+
+        $tag = Tag::where('status', 1)->get();
+        $breadcrumb = array('文章管理', '修改文章');
+        return view('admin.article.edit', compact('breadcrumb', 'categoryTree', 'data', 'id', 'tag', 'ArticleTagId', 'articleCategoryId'));
     }
 
     /**
@@ -99,8 +121,8 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, ArticleRepository $article)
     {
-        //
+        return $article->destroy($request);
     }
 }

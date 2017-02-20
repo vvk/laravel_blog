@@ -180,6 +180,7 @@ return [
 
 
         Mews\Captcha\CaptchaServiceProvider::class,  //验证码
+        Barryvdh\Debugbar\ServiceProvider::class, //  Laravel Debugbar
 
     ],
 
@@ -231,6 +232,7 @@ return [
 
 
         'Captcha' => Mews\Captcha\Facades\Captcha::class,  //验证码
+        'Debugbar' => Barryvdh\Debugbar\Facade::class, // Laravel Debugbar
 
     ],
 

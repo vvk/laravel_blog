@@ -40,7 +40,7 @@
                     <div class="hr-line-dashed"></div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">关键字</label>
-                        <div class="col-sm-8">
+                        <div class="col-sm-6">
                             <input type="text" placeholder="关键字" class="form-control keywords" name="keywords" value="{{$data['keywords'] or ''}}">
                         </div>
                     </div>
@@ -48,7 +48,7 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">描述</label>
 
-                        <div class="col-sm-10">
+                        <div class="col-sm-6">
                             <textarea class="form-control description" placeholder="描述" rows="3" name="description">{{$data['description'] or ''}}</textarea>
                         </div>
                     </div>
@@ -57,18 +57,18 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">缩略图</label>
 
-                        <div class="col-sm-4 thumb-input-box" @if($data && $data['thumb'])style="display:none"@endif>
-                            <input type="file" name="file" id="file" class="form-control file" onchange="uploadImg()">
+                        <div class="col-sm-4 image-input-box" @if($data && $data['thumb'])style="display:none"@endif>
+                            <input type="file" name="file" id="file" class="form-control file image-img-input" onchange="uploadImg()">
                         </div>
-                        <div class="col-sm-8 thumb-box" @if(!$data || !$data['thumb'])style="display:none"@endif >
+                        <div class="col-sm-8 image-box" @if(!$data || !$data['thumb'])style="display:none"@endif>
                             <div class="col-sm-8">
                                 <div style="width: 220px;float: left">
                                     <img src="{{isset($data['thumb']) ? asset($data['thumb']) : ''}}" width="200" />
                                 </div>
 
-                                <input type="hidden" value="{{$data['thumb'] or ''}}" name="thumb" class="thumb" />
+                                <input type="hidden" value="{{$data['thumb'] or ''}}" name="image" class="image" />
                                 <div style="width: 100px;float: left">
-                                    <button type="button" class="btn btn-sm btn-danger delete-thumb">删除图片</button>
+                                    <button type="button" class="btn btn-sm btn-danger delete-image">删除图片</button>
                                 </div>
                             </div>
                         </div>
@@ -92,14 +92,16 @@
     @parent
 
     <script src="{{asset('static/js/ajaxfileupload.js')}}"></script>
+    <script src="{{asset('static/js/admin/base.js')}}"></script>
     <script type="text/javascript">
+        var upload_image_url = "{{url('upload/thumb')}}";
         $(function(){
             $('.save').click(function(){
                 save();
             });
 
-            $('.delete-thumb').click(function(){
-                deleteThumb();
+            $('.delete-image').click(function(){
+                deleteImage();
             })
         })
 
@@ -111,7 +113,7 @@
             var keywords = $.trim($('.keywords').val());
             var description = $.trim($('.description').val());
             var _token = $.trim($('._token').val());
-            var thumb = $.trim($('.thumb').val());
+            var thumb = $.trim($('.image').val());
 
             if(!name){
                 swal({title:"保存失败",text:"分类名称不能为空", 'type':'error', 'confirmButtonText':'确定'});
@@ -145,35 +147,6 @@
             });
         }
 
-        //上传图片
-        function uploadImg(){
-            var url = "{{url('upload/thumb')}}";
-            $.ajaxFileUpload({
-                headers: {
-                    'X-CSRF-TOKEN': '{{csrf_token()}}'
-                },
-                url:url,
-                secureuri:false,
-                fileElementId:"file",        //file的id
-                dataType:"json",                  //返回数据类型为文本
-                success:function(response){
-                    if(response.status==0){
-                        var url = response.data.url;
-                        $('.thumb').val(url);
-                        $('.thumb-box').show().find('img').attr('src', url);
-                        $('.thumb-input-box').hide();
-                    }else{
-                        swal({title:"文件上传失败",text:response.msg, 'type':'error'});
-                    }
-                }
-            })
-        }
-
-        //删除图片
-        function deleteThumb(){
-            $('.thumb-input-box').show();
-            $('.thumb-box').hide().find('.thumb').val('').siblings('img').attr('src', '');
-        }
 
     </script>
 

@@ -7,7 +7,7 @@
     <meta name="keywords" content="">
     <meta name="description" content="">
 
-    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="shortcut icon" href="{{asset('favicon.ico')}}">
     <link href="{{asset('static/css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('static/css/font-awesome.min.css')}}" rel="stylesheet">
     <link href="{{asset('static/css/animate.min.css')}}" rel="stylesheet">

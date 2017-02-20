@@ -18,7 +18,7 @@
         <link href="{{asset('static/css/animate.min.css')}}" rel="stylesheet">
         <link href="{{asset('static/css/style.min.css')}}" rel="stylesheet">
         <link href="{{asset('static/css/plugins/sweetalert/sweetalert.css')}}" rel="stylesheet">
-        <link href="{{asset('static/css/admin_common.css')}}" rel="stylesheet">
+        <link href="{{asset('static/css/admin/common.css')}}" rel="stylesheet">
     @show
     @yield('after_css')
 </head>

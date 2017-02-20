@@ -50,3 +50,15 @@ if (!function_exists('adminError')) {
         return view('admin.public.error', compact('msg'));
     }
 }
+
+if (!function_exists('isUrl')) {
+    function isUrl($url)
+    {
+        $regex = '/^http(s?):\/\/(?:[A-za-z0-9-]+\.)+[A-za-z]{2,4}(:\d+)?(?:[\/\?#][\/=\?%\-&~`@[\]\':+!\.#\w]*)?$/';
+        if (preg_match($regex, $url)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
