@@ -182,6 +182,10 @@ return [
         Mews\Captcha\CaptchaServiceProvider::class,  //验证码
         Barryvdh\Debugbar\ServiceProvider::class, //  Laravel Debugbar
 
+
+        App\Providers\FacadesServiceProvider::class,
+        App\Providers\ComposerServiceProvider::class,
+
     ],
 
     /*
@@ -233,6 +237,11 @@ return [
 
         'Captcha' => Mews\Captcha\Facades\Captcha::class,  //验证码
         'Debugbar' => Barryvdh\Debugbar\Facade::class, // Laravel Debugbar
+
+
+        'Banner' => App\Services\Facades\Banner::class,
+        'Article' => App\Services\Facades\Article::class,
+        'Tag' => App\Services\Facades\Tag::class,
 
     ],
 

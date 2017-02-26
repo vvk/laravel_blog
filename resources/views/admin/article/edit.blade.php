@@ -57,6 +57,7 @@
                                     <span class="input-group-btn">
                                         <button type="button" class="btn btn-primary add-category" @if($data && ($key < count($categoryTree['list'])-1))style="display: none" @endif><i class="fa fa-plus-square"></i> 添加</button>
                                         <button type="button" class="btn btn-danger delete-category" @if($key < 1)style="display: none" @endif ><i class="fa fa-trash"></i> 删除</button>
+                                        @if($key == 0) <span style="color:#999;font-size: 12px;margin-left: 10px;">只有第一个分类会在列表页显示</span> @endif
                                     </span>
                                 </div>
                             @endforeach
@@ -150,7 +151,7 @@
                                 @if($data && $data['status'] == 2) 更新 @else 发布 @endif
                             </button>
                             @if($data && $id)
-                                <a href="{{url('archives/'.$id)}}?type=view" target="_blank" class="btn btn-info">查看</a>
+                                <a href="{{url('archives/'.$id)}}?type=preview" target="_blank" class="btn btn-info">查看</a>
                             @endif
                         </div>
                     </div>

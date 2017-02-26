@@ -10,4 +10,9 @@ class ArticleTag extends Model
     protected $table = 'article_tag';
     protected $fillable = array('article_id', 'tag_id');
 
+    public function tag()
+    {
+        return $this->belongsTo('App\Models\Tag');
+    }
+
 }

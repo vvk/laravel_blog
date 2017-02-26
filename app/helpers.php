@@ -62,3 +62,15 @@ if (!function_exists('isUrl')) {
         }
     }
 }
+
+if (!function_exists('articleHasImg')) {
+    function articleHasImg($data)
+    {
+        $regex = '/<img.*>/i';
+        if (preg_match($regex, $data)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+}

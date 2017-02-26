@@ -69,8 +69,13 @@ Route::group(['middleware' => ['web', 'admin.auth'], 'prefix'=>'admin', 'namespa
 });
 
 Route::group(['middleware' => ['web'], 'namespace'=>'Home'], function (){
-    Route::get('archives', 'ArticleController@index')->where('id', '\d+')->name('articleDetail');
 
+    Route::get('/', 'IndexController@index');
+
+//    Route::get('archives', 'ArticleController@index')->where('id', '\d+')->name('articleDetail');
+    Route::get('category/{id}', 'CategoryController@index')->where('id', '\d+');
+    Route::get('archives/{id}', 'ArticleController@index')->where('id','\d+');
+    Route::get('tag/{tag}', 'TagController@index');
 
 
 });
@@ -89,4 +94,3 @@ Route::group(['middleware' => ['web'], 'namespace'=>'Common'], function (){
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');

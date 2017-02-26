@@ -22,7 +22,7 @@
     <div class="middle-box text-center loginscreen  animated fadeInDown">
         <div class="login-container">
             <div style="margin-top:20% ">
-                <a href="{{asset('/')}}"><img class="login-logo rotation3" src="{{asset('static/image/logo.png')}}"/></a>
+                <a href="{{asset('/')}}"><img class="login-logo" src="{{asset('static/image/logo.png')}}"/></a>
             </div>
             <form class="m-t" role="form">
                 <div class="form-group">

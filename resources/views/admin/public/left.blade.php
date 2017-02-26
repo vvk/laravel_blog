@@ -3,13 +3,13 @@
     </div>
     <div class="sidebar-collapse">
         <ul class="nav" id="side-menu">
-            <li class="nav-header" style="padding: 10px 25px">
-                <div class="dropdown profile-element">
+            <li class="nav-header" style="padding: 10px 25px 5px">
+                <div class="dropdown profile-element" style="padding-bottom: 4px;">
                     <a href="{{url('admin')}}">
-                        <img class="img-circle rotation3" src="{{asset('static/image/logo.png')}}" style="width: 65px" />
+                        <img src="{{asset('static/image/logo.png')}}" style="width: 95px" />
                     </a>
                 </div>
-                <div class="logo-element"><img class="img-circle rotation3" src="{{asset('static/image/logo.png')}}" style="width: 25px" /></div>
+                <div class="logo-element" style="padding: 0px;"><img src="{{asset('static/image/little_logo.png')}}" style="width: 25px" /></div>
             </li>
             <li>
                 <a href="#">

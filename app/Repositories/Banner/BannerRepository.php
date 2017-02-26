@@ -7,7 +7,6 @@ use App\Repositories\Repository;
 
 class BannerRepository extends Repository
 {
-
     public function store($request)
     {
         $data = $request->all();
