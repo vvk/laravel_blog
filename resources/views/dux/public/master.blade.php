@@ -50,7 +50,7 @@
 <footer class="footer">
     <div class="container">
         <div class="fcode">
-            @if(isset($friendLink) && $friendLink)
+            @if(isset($friendLink) && $friendLink && $friendLink->count() > 0)
                 <div class="friend_link">
                     <ul>
                         <li><span>友情链接：</span></li>

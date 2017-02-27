@@ -5,7 +5,7 @@
         <div class="content-wrap">
             <div class="content">
 
-            @if(isset($banner) && $banner)
+            @if(isset($banner) && $banner && $banner->count() > 0)
                 <!-- 轮播图 start -->
                 <div id="focusslide" class="carousel slide" data-ride="carousel" style="touch-action: pan-y; -webkit-user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
                     <ol class="carousel-indicators">
@@ -21,7 +21,6 @@
                                 </a>
                             </div>
                         @endforeach
-
                     </div>
 
                     <a class="left carousel-control" href="#focusslide" role="button" data-slide="prev">
@@ -73,18 +72,7 @@
                 <ul class="widget-navcontent">
                     <li class="item item-01 active">
                         <ul>
-                            {{-- <li>
-                                 <time>06-30</time>
-                                 <a target="_blank" href="">大前端和阿里百秀背后的团队</a>
-                             </li>
-                             <li>
-                                 <time>06-30</time>
-                                 <a target="_blank" href="">你是否希望大前端做服务器合租代管服务？</a>
-                             </li>
-                             <li>
-                                 <time>06-30</time>
-                                 <a target="_blank" href="">大前端D8主题等其他主题支持wordpress 3.8版本</a>
-                             </li>--}}
+
                         </ul>
                     </li>
                     <li class="item item-02">
@@ -105,7 +93,7 @@
             </div>
             <!-- 最新评论 end -->
 
-            @if(isset($usedTags) && $usedTags)
+            @if(isset($usedTags) && $usedTags && $usedTags->count() > 0)
                 <div class="widget widget_ui_tags">
                     <h3>标签云</h3>
                     <div class="items">

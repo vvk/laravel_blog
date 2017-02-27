@@ -83,6 +83,7 @@
 <script src="{{asset('static/js/bootstrap.min.js')}}"></script>
 <script src="{{asset('static/js/plugins/metisMenu/jquery.metisMenu.js')}}"></script>
 <script src="{{asset('static/js/plugins/layer/layer.js')}}"></script>
+<script src="{{asset('static/js/plugins/slimscroll/jquery.slimscroll.min.js')}}"></script>
 <script src="{{asset('static/js/hplus.min.js')}}"></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-@if($hotArticle)
+@if(isset($hotArticle) && $hotArticle && $hotArticle->count() > 0)
     <div class="widget widget_ui_posts">
         <h3>热门文章</h3>
         <ul>

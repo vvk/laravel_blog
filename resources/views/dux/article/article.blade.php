@@ -118,7 +118,7 @@
             </div>
             <!-- 最新评论 end -->
 
-            @if(isset($usedTags) && $usedTags)
+            @if(isset($usedTags) && $usedTags && $usedTags->count() > 0)
                 <div class="widget widget_ui_tags">
                     <h3>标签云</h3>
                     <div class="items">

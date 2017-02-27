@@ -1,5 +1,5 @@
 <!-- 推荐文章 start -->
-@if($recommendArticle)
+@if(isset($recommendArticle) && $recommendArticle && $recommendArticle->count() > 0)
     <div class="widget widget_ui_posts">
         <h3>置顶推荐</h3>
         <ul>
