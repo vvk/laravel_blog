@@ -83,10 +83,12 @@
             ver:'1.0',
             roll: ["1","2"]
         };
+        var duoshuoQuery = {short_name:"sunwq"};
     </script>
     <script type="text/javascript" src="{{asset('static/js/jquery.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('static/bootstrap/js/bootstrap.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('static/js/loader.js')}}"></script>
+    <script type="text/javascript" src="{{asset('static/js/embed.js')}}"></script>
 @show
 @yield('after_js')
 
