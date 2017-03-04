@@ -9,11 +9,11 @@
     <script type="text/javascript" src="{{asset('plugins/ueditor/third-party/jquery-1.10.2.min.js')}}"></script>
 
     <!-- webuploader -->
-    <script type="text/javascript" src="{{asset('static/js/plugins/ueditor/third-party/webuploader/webuploader.min.js')}}"></script>
-    <link rel="stylesheet" type="text/css" href="{{asset('static/js/plugins/ueditor/third-party/webuploader/webuploader.css')}}">
+    <script type="text/javascript" src="{{asset('plugins/ueditor/third-party/webuploader/webuploader.min.js')}}"></script>
+    <link rel="stylesheet" type="text/css" href="{{asset('plugins/ueditor/third-party/webuploader/webuploader.css')}}">
 
     <!-- attachment dialog -->
-    <link rel="stylesheet" href="{{asset('plugins/ueditor/dialogs/attachment/attachment.css')}}" type="text/css" />>
+    <link rel="stylesheet" href="{{asset('plugins/ueditor/dialogs/attachment/attachment.css')}}" type="text/css" />
 </head>
 <body>
 

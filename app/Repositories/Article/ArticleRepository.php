@@ -56,11 +56,13 @@ class ArticleRepository extends Repository
         DB::beginTransaction();
 
         $time = time();
+        $data['modify_time'] = $time;
         if ($id == 0) {
             $data['create_time'] = $time;
             if ($data['status'] == 2) {
                 $data['publish_time'] = $time;
             }
+
             $result = Article::create($data);  //保存文章内容
             if ($result) {
                 $id = $result->id;
@@ -74,8 +76,6 @@ class ArticleRepository extends Repository
             if ($data['status'] == 2 && !$article['publish_time']) {
                 $article['publish_time'] = $time;
             }
-
-            $data['modify_time'] = $time;
 
             //更新文章内容
             $result = Article::where('id', $id)->update($data);

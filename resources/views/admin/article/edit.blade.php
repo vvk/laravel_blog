@@ -163,9 +163,9 @@
 
 @section('after_js')
 <script src="{{asset('static/js/ajaxfileupload.js')}}"></script>
-<script src="{{asset('static/js/plugins/ueditor/ueditor.config.js')}}"></script>
-<script src="{{asset('static/js/plugins/ueditor/ueditor.all.js')}}"></script>
-<script src="{{asset('static/js/plugins/ueditor/lang/zh-cn/zh-cn.js')}}"></script>
+<script src="{{asset('plugins/ueditor/ueditor.config.js')}}"></script>
+<script src="{{asset('plugins/ueditor/ueditor.all.js')}}"></script>
+<script src="{{asset('plugins/ueditor/lang/zh-cn/zh-cn.js')}}"></script>
 <script src="{{asset('static/js/plugins/iCheck/icheck.min.js')}}"></script>
 <script type="text/javascript">
     var category = '{!! $categoryTree['default'] !!}';

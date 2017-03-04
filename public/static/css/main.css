@@ -1897,7 +1897,7 @@ body.sign-show {
 pre.prettyprint {
     background-color: #272822;
     border: none;
-    overflow: hidden;
+    /*overflow: hidden;*/
     padding: 10px 15px;
 }
 .prettyprint.linenums,
