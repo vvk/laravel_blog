@@ -26,7 +26,7 @@ class ArticleController extends CommonController
             $query->where('status', 2);
         }
 
-        $data = $query->select('id','name','thumb','publish_time','description', 'content', 'view_count', 'is_reprint', 'modify_time')->first();
+        $data = $query->select('id','name','thumb','publish_time','description', 'content', 'view_count', 'is_reprint', 'modify_time', 'keywords')->first();
         if (!$data) {
             abort(404);
         }
