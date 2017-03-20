@@ -73,8 +73,8 @@ class ArticleRepository extends Repository
                 return ajaxResponse(1, trans('error.modify_article_not_exist'));
             }
 
-            if ($data['status'] == 2 && !$article['publish_time']) {
-                $article['publish_time'] = $time;
+            if ($data['status'] == 2 && !$article->publish_time) {
+                $data['publish_time'] = $time;
             }
 
             //更新文章内容
