@@ -98,11 +98,18 @@
                     </div>
             @endif
 
-            <!-- 多说评论框 start -->
                 <div id="comments">
-                    <div  class="ds-thread" data-thread-key="{{$data->id}}" data-title="{{$data->name}}" data-url="{{$url}}"></div>
+                        <div id="SOHUCS" sid="{{$data->id}}" ></div>
+                            <script type="text/javascript">
+                                (function(){
+                                    var appid = 'cysUgIez9';
+                                    var conf = 'prod_1c8de72b828eb4772941f50abbb504cb';
+                                    var width = window.innerWidth || document.documentElement.clientWidth;
+                                    if (width < 960) {
+                                        window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })();
+                            </script>
+
                 </div>
-                <!-- 多说评论框 end -->
             </div>
         </div>
 
@@ -112,10 +119,11 @@
         @include('dux.public.right_hot_article')
 
         <!-- 最新评论 start -->
-            <div class="widget widget_ui_comments">
-                <h3>最新评论</h3>
-                <ul class="ds-recent-comments"  data-num-items="5" data-show-avatars="1" data-show-time="1" data-show-title="1" data-show-admin="1" data-excerpt-length="70"><ul></ul></ul>
-            </div>
+            {{--<div class="widget widget_ui_comments">--}}
+                {{--<h3>最新评论</h3>--}}
+                {{--<ul class="ds-recent-comments"  data-num-items="5" data-show-avatars="1" data-show-time="1" data-show-title="1" data-show-admin="1" data-excerpt-length="70"><ul></ul></ul>--}}
+                {{--<div id="cyReping" role="cylabs" data-use="reping"></div>--}}
+            {{--</div>--}}
             <!-- 最新评论 end -->
 
             @if(isset($usedTags) && $usedTags && $usedTags->count() > 0)
@@ -130,10 +138,10 @@
             @endif
 
         <!-- 最近访客 start -->
-            <div class="widget widget_ui_readers">
+            {{--<div class="widget widget_ui_readers">
                 <h3>最近访客</h3>
                 <ul class="ds-recent-visitors" data-num-items="20" ></ul>
-            </div>
+            </div>--}}
             <!-- 最近访客 end -->
 
         </aside>

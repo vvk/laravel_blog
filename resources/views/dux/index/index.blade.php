@@ -87,10 +87,10 @@
             @include('dux.public.right_hot_article')
 
             <!-- 最新评论 start -->
-            <div class="widget widget_ui_comments">
-                <h3>最新评论</h3>
-                <ul class="ds-recent-comments" data-num-items="5" data-show-avatars="1" data-show-time="1" data-show-title="1" data-show-admin="1" data-excerpt-length="70"><ul></ul></ul>
-            </div>
+            {{--<div class="widget widget_ui_comments">--}}
+                {{--<h3>最新评论</h3>--}}
+                {{--<ul class="ds-recent-comments" data-num-items="5" data-show-avatars="1" data-show-time="1" data-show-title="1" data-show-admin="1" data-excerpt-length="70"><ul></ul></ul>--}}
+            {{--</div>--}}
             <!-- 最新评论 end -->
 
             @if(isset($usedTags) && $usedTags && $usedTags->count() > 0)
@@ -105,10 +105,10 @@
             @endif
 
             <!-- 最近访客 start -->
-            <div class="widget widget_ui_readers">
-                <h3>最近访客</h3>
-                <ul class="ds-recent-visitors" data-num-items="20"></ul>
-            </div>
+            {{--<div class="widget widget_ui_readers">--}}
+                {{--<h3>最近访客</h3>--}}
+                {{--<ul class="ds-recent-visitors" data-num-items="20"></ul>--}}
+            {{--</div>--}}
             <!-- 最近访客 end -->
         </aside>
     </section>
