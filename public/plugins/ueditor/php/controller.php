@@ -69,7 +69,7 @@ if (isset($_GET["callback"])) {
 }
 
 function getHost(){
-    return (isSsl() ? 'https' : 'http') . '://'.$_SERVER['SERVER_NAME']; 
+    return '//'.$_SERVER['SERVER_NAME'];
 }
 
 /**

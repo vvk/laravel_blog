@@ -18,7 +18,7 @@
 
 -->
 <!DOCTYPE html>
-<html>
+<html xmlns:wb="http://open.weibo.com/wb">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="UTF-8">
@@ -38,7 +38,7 @@
         <link rel="stylesheet" href="{{asset('static/css/main.css')}}" type="text/css" media="all">
     @show
     @yield('after_css')
-
+    @yield('head_js')
 </head>
 
 <body class="nav_fixed">
@@ -83,12 +83,10 @@
             ver:'1.0',
             roll: ["1","2"]
         };
-        var duoshuoQuery = {short_name:"sunwq"};
     </script>
     <script type="text/javascript" src="{{asset('static/js/jquery.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('static/bootstrap/js/bootstrap.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('static/js/loader.js')}}"></script>
-    <script type="text/javascript" src="{{asset('static/js/embed.js')}}"></script>
 @show
 @yield('after_js')
 
