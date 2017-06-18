@@ -5,9 +5,9 @@
 
 @endsection
 
-@section('head_js')
-    <script src="//tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
-@endsection
+{{--@section('head_js')
+    <script src="https://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
+@endsection--}}
 
 @section('content')
 
@@ -48,25 +48,13 @@
                     </div>
                 @endif
 
-                {{--<div>
-                    <div class="ds-share" data-thread-key="{{$data->id}}" data-title="{{$data->name}}" data-content="{{$data->name}}" data-url="{{$url}}">
-                        <div class="ds-share-inline">
-                            <ul  class="ds-share-icons-16">
-                                <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
-                                <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
-                                <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
-                                <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
-                                <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
-                            </ul>
-                            <div class="ds-share-icons-more">
-                            </div>
-                        </div>
-                    </div>
-                </div>--}}
-
                 <div>
-                    <div class="bdsharebuttonbox"><span style="height: 25px;line-height: 25px;">分享到：</span><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a></div>
-                    <script>window._bd_share_config={"common":{"bdSnsKey":{"tsina":"720629087"},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{},"image":{"viewList":["tsina","weixin","sqq","qzone","tqq","renren"],"viewText":"分享到：","viewSize":"24"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["tsina","weixin","sqq","qzone","tqq","renren"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+                    <div class="bdsharebuttonbox">
+                        <span style="height: 25px;line-height: 25px;">分享到：</span>
+                        {{--<wb:share-button appkey="720629087" addition="number" type="button" default_text="【{{$data->name}}】{{$description}}" @if($data->artitle_img_src)pic="{{implode('||', $data->artitle_img_src)}}"@endif ralateUid="1306149274"></wb:share-button>--}}
+                        <a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+                        <script>window._bd_share_config={"common":{"bdSnsKey":{"tsina":"720629087"},"bdText":"【{{$data->name}}】{{$description}}","bdMini":"2","bdMiniList":false,"bdPic":"{{implode('||', $data->artitle_img_src)}}","bdStyle":"0","bdSize":"24"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"24"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='{{asset('static/js/baidu_share.js')}}?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+                    </div>
                 </div>
 
                 @if($data->tag)

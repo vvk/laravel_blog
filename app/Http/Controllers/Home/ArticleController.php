@@ -81,6 +81,8 @@ class ArticleController extends CommonController
         //使用的标签
         $usedTags = Tag::getUsedTag();
 
+        $data->artitle_img_src = getArticleImgSrc($data->content);
+
         return Response::render('article.article', compact('hotArticle', 'title', 'keywords', 'description', 'data', 'url', 'relevanceArticle', 'recommendArticle', 'usedTags', 'siblingArticle'));
     }
 }

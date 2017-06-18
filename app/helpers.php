@@ -74,3 +74,34 @@ if (!function_exists('articleHasImg')) {
         }
     }
 }
+
+if (!function_exists('getArticleImgSrc')) {
+    function getArticleImgSrc($data)
+    {
+        $regex = '/<\s*img\s+[^>]*?src\s*=\s*(\'|\")(.*?)\\1[^>]*?\/?\s*>/i';
+        preg_match_all($regex, $data, $match);
+        if ($match && count($match) > 1) {
+            unset($match[0]);
+            if (isset($match[1]) && !isset($match[2])) {
+                $arr = $match[1];
+            } elseif (!isset($match[1]) && isset($match[2])) {
+                $arr = $match[2];
+            } else {
+                $arr = array_merge($match[1], $match[2]);
+            }
+
+            if (!$arr) {
+                return array();
+            }
+
+            $result = array_filter($arr, function ($item) {
+                return $item && isUrl($item);
+
+            });
+
+            return $result;
+        } else {
+            return array();
+        }
+    }
+}
