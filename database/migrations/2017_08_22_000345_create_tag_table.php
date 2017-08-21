@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePasswordResetsTable extends Migration
+class CreateTagTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreatePasswordResetsTable extends Migration
      */
     public function up()
     {
-        Schema::create('password_resets', function (Blueprint $table) {
-            $table->string('email')->index();
-            $table->string('token')->index();
-            $table->timestamp('created_at')->nullable();
+        Schema::create('tag', function (Blueprint $table) {
+            $table->increments('id')->unsigned();
+            $table->string('name', 50);
+            $table->tinyInteger('status')->default(1)->comment('状态，0:禁用，1:启用');
         });
     }
 
@@ -27,6 +27,6 @@ class CreatePasswordResetsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('password_resets');
+        Schema::drop('tag');
     }
 }
