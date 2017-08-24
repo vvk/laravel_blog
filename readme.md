@@ -30,6 +30,6 @@ php artisan db:seed
 ```
 
 至此，博客安装完成
->* 前台地址：```http://example.com```
->* 后台地址:`http://example.com/admin`
+>* 前台地址：`http://example.com`
+>* 后台地址：`http://example.com/admin`
 >* 账号/密码：`admin/admin`
