@@ -162,11 +162,11 @@ $('.user-welcome').tooltip({
  * sign
  * ====================================================
 */
-if (!jsui.bd.hasClass('logged-in')) {
+/*if (!jsui.bd.hasClass('logged-in')) {
     require(['signpop'], function(signpop) {
         signpop.init()
     })
-}
+}*/
 
 
 /* 
