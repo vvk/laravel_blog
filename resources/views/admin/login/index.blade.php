@@ -6,7 +6,7 @@
     <title>登录 -- {{config('web.web_title')}}</title>
     <meta name="keywords" content="{{config('web.web_keywords')}}">
     <meta name="description" content="{{config('web.web_description')}}">
-    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="shortcut icon" href="{{asset('favicon.ico')}}">
     <link href="{{asset('static/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('static/css/animate.min.css')}}" rel="stylesheet">
     <link href="{{asset('static/css/style.min.css')}}" rel="stylesheet">

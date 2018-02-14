@@ -52,7 +52,7 @@ class Handler extends ExceptionHandler
         }
 
         //数据库错误
-        if ($exception instanceof QueryException && !config('app.debug')) {
+        if (($exception instanceof QueryException || $exception instanceof \PDOException) && !config('app.debug')) {
             return response()->view('errors.500');
         }
 
