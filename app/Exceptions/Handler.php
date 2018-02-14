@@ -4,6 +4,7 @@ namespace App\Exceptions;
 
 use Exception;
 use Illuminate\Auth\AuthenticationException;
+use Illuminate\Database\QueryException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Validation\ValidationException;
 
@@ -49,6 +50,12 @@ class Handler extends ExceptionHandler
         if ($exception instanceof ValidationException) {
             return $exception->getResponse()->setStatusCode(200);
         }
+
+        //数据库错误
+        if ($exception instanceof QueryException && !config('app.debug')) {
+            return response()->view('errors.500');
+        }
+
         return parent::render($request, $exception);
     }
 
