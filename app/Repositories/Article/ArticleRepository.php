@@ -21,6 +21,8 @@ class ArticleRepository extends Repository
         $data['thumb'] = $request->input('thumb');
         $data['content'] = $request->input('content');
         $data['recommend'] = $request->input('recommend');
+        $data['editor_type'] = $request->input('editor_type');
+        $data['markdown'] = $request->input('markdown', '');
         $tag = $request->input('tag');
         $categoryId = $request->input('category_id');
         $type = $request->input('type');

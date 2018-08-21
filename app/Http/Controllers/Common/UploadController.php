@@ -70,4 +70,39 @@ class UploadController extends Controller
             return json_encode(array('status'=>1, 'msg'=>trans('upload_file.upload_file_fail')));
         }
     }
+
+    public function markdown(Request $request)
+    {
+        $name = 'editormd-image-file';
+        if (!$request->hasFile($name)) {
+            //return ajaxResponse(0, trans('upload_file.un_get_upload_file'));
+            return json_encode(array('success'=>0, 'msg'=>trans('upload_file.un_get_upload_file')));
+        }
+
+        if(!$request->file($name)->isValid()){
+            //return ajaxResponse(0, trans('upload_file.uploading_file_error'));
+            return json_encode(array('success'=>0, 'msg'=>trans('upload_file.uploading_file_error')));
+        }
+
+        $path = config('web.upload_image_path');
+
+        $file = $request->file($name);
+
+        $extension = $request->file($name)->getClientOriginalExtension();
+
+        $filename = md5(date('YmdHis').'image'.rand(10000,99999)).'.'.$extension;
+        $destinationPath = $path.date('Ymd').'/';
+
+        if(!is_dir($destinationPath)){
+            mkdir($destinationPath);
+        }
+
+        $res = $file->move($destinationPath, $filename);
+        if($res){
+            $url = url('/').'/'.$destinationPath.$filename;
+            return json_encode(array('success'=>1, 'msg'=>'success', 'url'=>$url));
+        }else{
+            return json_encode(array('success'=>0, 'msg'=>trans('upload_file.upload_file_fail')));
+        }
+    }
 }

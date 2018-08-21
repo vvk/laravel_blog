@@ -1,3 +1,5 @@
+var markdownEditor = ueditor = '';
+
 $(function () {
     $('.form-group').on('click', '.add-category', function () {
         addCategory(this);
@@ -19,7 +21,7 @@ $(function () {
         deleteImage();
     });
 
-    var ue = UE.getEditor('editor');
+    //var ue = UE.getEditor('editor');
 
     $(".article-save-btn-box button").click(function () {
         var type = parseInt($(this).val());
@@ -27,17 +29,36 @@ $(function () {
     });
 
     $(".i-checks").iCheck({checkboxClass:"icheckbox_square-green",radioClass:"iradio_square-green",})
+
+    var editorType = parseInt($('.editor_type').val());
+
+    var content = $.trim($('.article-content').html());
+    if (editorType == 2) {
+        loadUeditor(content);
+    } else {
+        loadMarkdown(content);
+    }
+
+    $('.editor_type').change(function () {
+        if ($(this).val() == 2) {
+            var data = markdownEditor.getHTML();
+            loadUeditor(data);
+        } else {
+            var data = UE.getEditor('editor').getContent();
+            loadMarkdown(data);
+        }
+    });
 })
 
 function addCategory(obj) {
     var html = '<div class="category-content input-group">';
-    html += '<select class="form-control category_id" name="category_id">';
+    html += '<select class="form-control category_id" name="category_id" style="position: initial">';
     html += '<option value="0">--请选择分类--</option>';
     html += category;
     html += '</select>';
     html += '<span class="input-group-btn">';
-    html += '<button type="button" class="btn btn-primary add-category"><i class="fa fa-plus-square"></i> 添加</button>';
-    html += '<button type="button" class="btn btn-danger delete-category"><i class="fa fa-trash"></i> 删除</button>';
+    html += '<button style="position: initial" type="button" class="btn btn-primary add-category"><i class="fa fa-plus-square"></i> 添加</button>';
+    html += '<button style="position: initial" type="button" class="btn btn-danger delete-category"><i class="fa fa-trash"></i> 删除</button>';
     html += '</span></div>';
 
     $(obj).hide().parents('.category-content').after(html);
@@ -101,7 +122,15 @@ function saveArticle(obj, type) {
     }
 
     data.thumb = $.trim($('.image').val());
-    data.content = UE.getEditor('editor').getContent();
+
+    data.editor_type = parseInt($('.editor_type').val());
+    if (data.editor_type == 2) {
+        data.content = UE.getEditor('editor').getContent();
+    } else {
+        data.content = markdownEditor.getHTML();
+        data.markdown = markdownEditor.getMarkdown();
+    }
+
     if (!data.content) {
         swal({title:"保存失败",text:"文章内容不能为空", 'type':'error', 'confirmButtonText':'确定'});
         $(obj).text(text).removeAttr('disabled');
@@ -124,7 +153,6 @@ function saveArticle(obj, type) {
     data.id = parseInt($('.id').val());
     data._token = $.trim($('._token').val());
     data.type = type;
-    console.log(data)
 
     $.ajax({
         type:'POST',
@@ -150,10 +178,52 @@ function saveArticle(obj, type) {
             }
         }
     });
+}
 
+/**
+ * 设置markdown内容
+ * @param content
+ */
+function loadMarkdown(content){
+    content = $.trim(String(content))
+    markdownEditor = editormd("markdown-container", {
+        value: content,
+        htmlDecode: "style,script,iframe",
+        height: 400,
+        path : '/plugins/markdown/lib/',
+        codeFold : true,
+        saveHTMLToTextarea : true,    // 保存 HTML 到 Textarea
+        searchReplace : true,
+        htmlDecode : "style,script,iframe|on*",            // 开启 HTML 标签解析，为了安全性，默认不开启
+        taskList : true,
+        tocm            : true,         // Using [TOCM]
+        sequenceDiagram : true,       // 开启时序/序列图支持，默认关闭,
+        imageUpload : true,
+        imageFormats : ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
+        imageUploadURL : "/upload/markdown"
+    });
 
+    // @todo editormd.js:2247 Uncaught TypeError: Cannot read property 'setValue' of undefined
+    //markdownEditor.setValue(content);
+    $('#ueditor-container').addClass('hidden').siblings('div').removeClass('hidden');
+}
 
+/**
+ * 设置ueditor内容
+ * @param content
+ */
+function loadUeditor(content){
+    content = $.trim(content)
+    $('#markdown-container').addClass('hidden').siblings('div').removeClass('hidden');
 
-
-
+    if (!ueditor) {
+        var html = '<script id="editor" type="text/plain" >'+content+'</script>';
+        $('#ueditor-container').html(html);
+        ueditor = UE.getEditor('editor');
+        ueditor.ready(function() {
+            ueditor.setContent(content);
+        });
+    } else {
+        ueditor.setContent(content);
+    }
 }

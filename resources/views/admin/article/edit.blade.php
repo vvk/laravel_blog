@@ -2,6 +2,7 @@
 
 @section('after_css')
     <link href="{{asset('static/css/plugins/iCheck/custom.css')}}" rel="stylesheet"/>
+    <link href="{{asset('plugins/markdown/css/editormd.css')}}" rel="stylesheet"/>
 <style type="text/css">
     .category-content select{width: 200px !important;}
     .category-content:not(:first-child){margin-top:3px;}
@@ -50,19 +51,18 @@
                         <div class="col-sm-3">
                             @foreach($categoryTree['list'] as $key=>$val)
                                 <div class="category-content input-group">
-                                    <select class="form-control category_id" name="category_id">
+                                    <select class="form-control category_id" name="category_id"  style="position: initial;">
                                         <option value="0">--请选择分类--</option>
                                         {!! $val !!}
                                     </select>
                                     <span class="input-group-btn">
-                                        <button type="button" class="btn btn-primary add-category" @if($data && ($key < count($categoryTree['list'])-1))style="display: none" @endif><i class="fa fa-plus-square"></i> 添加</button>
-                                        <button type="button" class="btn btn-danger delete-category" @if($key < 1)style="display: none" @endif ><i class="fa fa-trash"></i> 删除</button>
+                                        <button type="button" class="btn btn-primary add-category" style="position: initial;@if($data && ($key < count($categoryTree['list'])-1))display: none; @endif"><i class="fa fa-plus-square"></i> 添加</button>
+                                        <button type="button" class="btn btn-danger delete-category" style="position: initial;@if($key < 1)display: none; @endif" ><i class="fa fa-trash"></i> 删除</button>
                                         @if($key == 0) <span style="color:#999;font-size: 12px;margin-left: 10px;">只有第一个分类会在列表页显示</span> @endif
                                     </span>
                                 </div>
                             @endforeach
                         </div>
-
                     </div>
 
                     <div class="hr-line-dashed"></div>
@@ -121,9 +121,26 @@
 
                     <div class="hr-line-dashed"></div>
                     <div class="form-group">
+                        <label class="col-sm-2 control-label">编辑器类型</label>
+                        <div class="col-sm-3">
+                            <div class="category-content input-group">
+                                <select class="form-control editor_type" name="editor_type">
+                                    @foreach(config('web.editor_type') as $key=>$val)
+                                    <option {{$data && $data['editor_type'] == $key ? 'selected' : ''}} value="{{$key}}">{{$val}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
                         <label class="col-sm-2 control-label">文章内容</label>
                         <div class="col-sm-8">
-                            <script id="editor" type="text/plain" style="height:500px;">{!! $data['content'] or '' !!}</script>
+                                <div id="markdown-container" class="hidden"></div>
+                                <div id="ueditor-container" class="hidden">
+                                    {{--<script id="editor" type="text/plain" ></script>--}}
+                                </div>
                         </div>
                     </div>
 
@@ -159,6 +176,8 @@
             </div>
         </div>
     </div>
+
+    <script type="text/plain" class="article-content">{!! !empty($data['markdown']) ? $data['markdown'] : (!empty($data["content"]) ? $data["content"] : "") !!}</script>
 @endsection
 
 @section('after_js')
@@ -167,6 +186,7 @@
 <script src="{{asset('plugins/ueditor/ueditor.all.js')}}"></script>
 <script src="{{asset('plugins/ueditor/lang/zh-cn/zh-cn.js')}}"></script>
 <script src="{{asset('static/js/plugins/iCheck/icheck.min.js')}}"></script>
+<script src="{{asset('plugins/markdown/editormd.js')}}"></script>
 <script type="text/javascript">
     var category = '{!! $categoryTree['default'] !!}';
     var base_url = "{{url('/')}}";

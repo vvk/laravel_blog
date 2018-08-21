@@ -9,7 +9,7 @@ class Article extends Model
     public $timestamps = false;
     protected $table = 'article';
     protected $fillable = array('name', 'keywords', 'description', 'thumb', 'status', 'create_time',
-        'modify_time', 'publish_time', 'delete_time', 'view_count', 'is_reprint', 'reprint_url', 'content','recommend');
+        'modify_time', 'publish_time', 'delete_time', 'view_count', 'is_reprint', 'reprint_url', 'content','recommend', 'editor_type', 'markdown');
 
     public function category()
     {

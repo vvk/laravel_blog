@@ -15,5 +15,6 @@ class VerifyCsrfToken extends BaseVerifier
         'upload/thumb',
         'upload/banner',
         'upload/image',
+        'upload/markdown',
     ];
 }

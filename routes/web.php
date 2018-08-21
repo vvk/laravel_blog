@@ -87,6 +87,7 @@ Route::group(['middleware' => ['web'], 'namespace'=>'Common'], function (){
     Route::post('/upload/thumb', 'UploadController@thumb');
     Route::post('/upload/banner', 'UploadController@banner');
     Route::post('/upload/image', 'UploadController@image');
+    Route::post('/upload/markdown', 'UploadController@markdown');
 });
 
 

@@ -28,7 +28,8 @@ class CreateArticleTable extends Migration
             $table->tinyInteger('is_reprint')->default(0)->comment('是否为转载，0:不是，1:是');
             $table->string('reprint_url', 100)->comment('转载链接');
             $table->longText('content')->comment('文章内容');
-            $table->tinyInteger('recommend')->default(0)->comment('推荐文章：0,否，1:是');
+            $table->tinyInteger('editor_type')->default(1)->comment('编辑器类型，1:markdown，2:百度编辑器');
+            $table->longText('markdown')->comment('文章内容');
             $table->index('status');
         });
     }

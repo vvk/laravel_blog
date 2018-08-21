@@ -5,7 +5,7 @@
 @section('content')
     <section class="container">
         <div class="f404">
-            <img src="{{asset('static/image/500.jpg')}}">
+            <img src="{{asset('static/image/500.png')}}">
         </div>
     </section>
 @endsection
