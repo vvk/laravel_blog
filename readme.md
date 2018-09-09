@@ -1,8 +1,8 @@
 ##  基于Laravel5.3 开发发的博客
-本博客基于Laravel5.3，所以要求 `PHP>=5.6.4`
+本博客基于Laravel5.6，所以要求 `PHP>=7.2`
 * 克隆源代码到本地：
  ```
-    git clone git@github.com:suning920/laravel_blog.git
+    git clone git@github.com:vvk/laravel_blog.git
  ```
 * 安装依赖包
  ```
