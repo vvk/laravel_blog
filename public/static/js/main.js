@@ -353,6 +353,35 @@ function video_ok(){
 }
 
 
+$("body").click(function(e) {
+            var a = new Array("欢迎您", "么么哒", "你真好", "棒棒哒", "真可爱", "你最美", "喜欢你", "真聪明", "爱你哦", "好厉害", "你真帅", "祝福你"),
+                b = new Array("#09ebfc", "#ff6651", "#ffb351", "#51ff65", "#5197ff", "#a551ff", "#ff51f7", "#ff518e", "#ff5163", "#efff51"),
+                c = new Array("12", "14", "16", "18", "20", "22", "24", "26", "28", "30");
+            var a_idx = (parseInt(10*Math.random()) + 1) % a.length;
+            var b_idx = (parseInt(10*Math.random()) + 1) % b.length;
+            var c_idx = (parseInt(10*Math.random()) + 1) % c.length;
+            var $i = $("<span/>").text(a[a_idx]);
+            var x = e.pageX,
+                y = e.pageY;
+            $i.css({
+                "z-index": 999,
+                "top": y - 20,
+                "left": x,
+                "position": "absolute",
+                "font-weight": "bold",
+                "font-size": c[c_idx] + "px",
+                "color": b[b_idx]
+            });
+            $("body").append($i);
+            $i.animate({
+                "top": y - 180,
+                "opacity": 0
+            }, 1500, function() {
+                $i.remove();
+            });
+        });
+
+
 
 
 /* functions
