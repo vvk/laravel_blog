@@ -16,6 +16,28 @@
                                                                      | |  \____/                | |                __/ |
                                                                      |_|                        |_|               |___/
 
+
+/**
+ * ----------Dragon be here!----------/
+ * 　　　┏┓　　　┏┓
+ * 　　┏┛┻━━━┛┻┓
+ * 　　┃　　　　　　　┃
+ * 　　┃　　　━　　　┃
+ * 　　┃　┳┛　┗┳　┃
+ * 　　┃　　　　　　　┃
+ * 　　┃　　　┻　　　┃
+ * 　　┃　　　　　　　┃
+ * 　　┗━┓　　　┏━┛
+ * 　　　　┃　　　┃神兽保佑
+ * 　　　　┃　　　┃代码无BUG！
+ * 　　　　┃　　　┗━━━┓
+ * 　　　　┃　　　　　　　┣┓
+ * 　　　　┃　　　　　　　┏┛
+ * 　　　　┗┓┓┏━┳┓┏┛
+ * 　　　　　┃┫┫　┃┫┫
+ * 　　　　　┗┻┛　┗┻┛
+ * ━━━━━━神兽出没━━━━━━
+*/
 -->
 <!DOCTYPE html>
 <html>
@@ -55,7 +77,15 @@
                     <ul>
                         <li><span>友情链接：</span></li>
                         @foreach($friendLink as $item)
-                            <li><a href="{{$item['url']}}" target="_blank" title="{{$item['description']}}">{{$item['name']}}</a> </li>
+                            <li style='vertical-align:middle'>
+                				<a href="{{$item['url']}}" target="_blank" title="{{$item['description'] ? $item['description'] : $item['name']}}">
+                				    @if(!empty($item['image']))
+                				        <img src="{{$item['image']}}" style='height:30px' />
+                				    @else
+                					   {{$item['name']}}
+                				    @endif
+                				</a>
+            			    </li>
                         @endforeach
                     </ul>
                 </div>
