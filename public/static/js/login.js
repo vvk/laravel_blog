@@ -58,6 +58,10 @@ function login() {
                 $('.login-container .captcha-img').attr('src', captcha_src + Math.random());
                 return false;
             }
+        },
+        error:function () {
+            loginError('系统错误，请稍后重试');
+            return false;
         }
     });
 }
