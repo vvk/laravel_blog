@@ -77,6 +77,9 @@ Route::group(['middleware' => ['web'], 'namespace'=>'Home'], function (){
     Route::get('archives/{id}', 'ArticleController@index')->where('id','\d+');
     Route::get('tag/{tag}', 'TagController@index');
 
+    //图床
+    Route::get('/figure-bed', 'FigureBedController@index');
+    Route::post('/figure-bed/upload', 'FigureBedController@upload');
 
 });
 

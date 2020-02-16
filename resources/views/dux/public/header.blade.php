@@ -11,6 +11,9 @@
             <li class="">
                 <a href="{{url('category/1')}}"><i class="fa fa-code"></i> PHP</a>
             </li>
+            <li class="">
+                <a href="{{url('figure-bed')}}"><i class="fa fa-image"></i> 图床</a>
+            </li>
             <li class="navto-search">
                 <a href="javascript:;" class="search-show active"><i class="fa fa-search"></i></a>
             </li>

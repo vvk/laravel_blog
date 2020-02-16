@@ -52,6 +52,7 @@
     <meta name="keywords" content="@section('keywords')@if(isset($keywords) && $keywords){{$keywords}}@else{{config('web.web_keywords')}}@endif @show">
     <meta name="description" content="@section('description')@if(isset($description) && $description){{$description}}@else{{config('web.web_description')}}@endif @show">
     <link rel="shortcut icon" href="{{asset('favicon.ico')}}">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     @yield('before_css')
     @section('css')

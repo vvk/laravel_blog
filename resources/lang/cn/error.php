@@ -41,4 +41,10 @@ return array(
     'modify_link_not_exist' => '修改的友情链接不存在',
     'delete_link_not_exist' => '删除的友情链接不存在',
 
+    'figure_bed_valid' => '上传文件不合法',
+    'figure_bed_upload_fail' => '上传失败，请稍后重试',
+    'upload_file_not_image' => '上传的文件不是图片',
+    'upload_file_invalid_image_mime'   => '上传失败，当前格式图片不允许上传',
+    'upload_file_too_big'   => '上传失败，上传文件过大',
+
 );

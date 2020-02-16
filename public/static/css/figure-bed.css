@@ -1,0 +1,6 @@
+.upload-container{border: 3px dashed #e6e6e6;}
+.upload-container .upload-img-box{min-height:280px;padding: 70px;position:relative;text-align:center;color: #ccc;font-size: 30px;}
+.upload-btn-box button{background-color: #337ab7;border-color: #337ab7}
+.upload-btn-box button:hover{background-color: #3071a9;border-color: #3071a9}
+.upload-msg{margin-top: 20px;text-align: center;}
+.loading-text{margin-top: 50px;}

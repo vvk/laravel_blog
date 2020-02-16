@@ -15,6 +15,7 @@ class ComposerServiceProvider extends ServiceProvider
     {
         $theme = config('web.theme');
         $view = array($theme.'.index.index', $theme.'.article.article');
+        $view[] = $theme.'.figure-bed.index';
 
         view()->composer($view, 'App\Http\ViewComposers\FlinkComposer');
         view()->composer($view, 'App\Http\ViewComposers\ArticleComposer');

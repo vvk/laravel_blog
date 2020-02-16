@@ -62,6 +62,14 @@ return [
             'bucket' => 'your-bucket',
         ],
 
+        'upyun' => [
+            'driver' => 'upyun',
+            'service' => env('UPYUN_SERVICE', ''),
+            'operator' => env('UPYUN_OPERATOR', ''),
+            'password' => env('UPYUN_PASSWORD', ''),
+            'domain' => env('UPYUN_DOMAIND', ''),
+        ],
+
     ],
 
 ];
