@@ -73,7 +73,7 @@ class FigureBedController extends CommonController
             return ajaxResponse(1, trans('error.figure_bed_upload_fail'));
         }
 
-        $url = '//'.config('filesystems.disks.upyun.domain').'/'.$res;
+        $url = getUpyunCdnUrl($res);
         $figureBed->store($res, $request->ip());
         return ajaxResponse(0, 'success', ['url' => $url]);
     }

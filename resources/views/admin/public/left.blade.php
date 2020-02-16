@@ -31,6 +31,18 @@
             </li>
             <li>
                 <a href="#">
+                    <i class="fa fa-cubes"></i>
+                    <span class="nav-label">扩展功能</span>
+                    <span class="fa arrow"></span>
+                </a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="{{asset('admin/figure-bed')}}" target="content">图床</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">
                     <i class="fa fa-gear"></i>
                     <span class="nav-label">系统设置</span>
                     <span class="fa arrow"></span>

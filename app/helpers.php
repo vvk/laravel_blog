@@ -105,3 +105,10 @@ if (!function_exists('getArticleImgSrc')) {
         }
     }
 }
+
+if (!function_exists('getUpyunCdnUrl')) {
+    function getUpyunCdnUrl($url)
+    {
+        return $url = '//'.config('filesystems.disks.upyun.domain').'/'.trim($url, '/');
+    }
+}
