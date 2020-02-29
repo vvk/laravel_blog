@@ -93,6 +93,9 @@
             @endif
         </div>
         <p>Copyright © 2016-{{date('Y')}} {{config('web.web_site')}} All Rights Reserved  {!! config('web.site_stat_code') !!}</p>
+        @if (!empty(config('web.beian_recoed')))
+            <p><a href="http://www.beian.miit.gov.cn" target="_blank">{{config('web.beian_recoed')}}</a></p>
+        @endif
     </div>
 </footer>
 

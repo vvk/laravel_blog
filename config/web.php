@@ -30,4 +30,6 @@ return array(
     'editor_type' => ['1' => 'Markdown', '2' => '百度编辑器'],
 
     'mail' => env('ADMIN_EMAIL', ''),
+
+    'beian_recoed' => env('BEIAN_RECOED', '')
 );
