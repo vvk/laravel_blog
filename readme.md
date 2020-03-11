@@ -1,4 +1,4 @@
-##  基于[Laravel5.6](https://github.com/laravel/laravel/tree/5.6) 开发发的博客
+##  基于[Laravel5.6](https://github.com/laravel/laravel/tree/5.6 "Laravel5.6"){:target="_blank"} 开发发的博客
 本博客基于Laravel5.6，所以要求 `PHP>=7.2`
 * 克隆源代码到本地：
  ```
