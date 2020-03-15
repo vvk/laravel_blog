@@ -1,9 +1,12 @@
 <?php
 
 return array(
-    'system_error'     => '系统错误',
+    'system_error'     => '系统错误，请稍后重试',
     'delete_fail'      => '删除失败',
-    'save_fail'        => '保存失败',
+    'save_fail'        => '保存失败,请稍后重试',
+    'between'          => ':attribute 不合法，取值范围为 :min - :max.',
+    'required'          => ':attribute 不存在',
+    'integer'          => ':attribute 必须是整数',
 
     'name_not_empty'   => '名称不能为空',
     'parent_cat_not_sub_cat'  => '上级分类不能是当前分类的子分类',
@@ -46,5 +49,17 @@ return array(
     'upload_file_not_image' => '上传的文件不是图片',
     'upload_file_invalid_image_mime'   => '上传失败，当前格式图片不允许上传',
     'upload_file_too_big'   => '上传失败，上传文件过大',
+
+    'option_name_required' => '显示名称不能为空',
+    'option_name_unique' => '显示名称已存在',
+    'option_name_too_long' => '显示名称不能超过 :max 个字条',
+    'option_title_required' => '配置字段不能为空',
+    'option_title_unique' => '配置字段已存在',
+    'option_title_too_long' => '配置字段不能超过 :max 个字条',
+    'option_title_regex' => '配置字段不合法，必须是字母、数字、下划线',
+    'option_form_type_invalid' => '表单类型不合法',
+    'option_form_option_invalid' => '配置项格式不合法，必须是合法的json格式',
+    'option_form_option_required' => '配置项不能为空',
+    'option_modify_not_exist' => '修改的配置项不存在',
 
 );

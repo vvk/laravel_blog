@@ -49,6 +49,9 @@
                 </a>
                 <ul class="nav nav-second-level">
                     <li>
+                        <a href="{{asset('admin/option')}}" target="content">配置</a>
+                    </li>
+                    <li>
                         <a href="{{asset('admin/banner')}}" target="content">轮播图</a>
                     </li>
                     <li>

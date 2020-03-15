@@ -92,7 +92,7 @@
                 </div>
             @endif
         </div>
-        <p>Copyright © 2016-{{date('Y')}} {{config('web.web_site')}} All Rights Reserved  {!! config('web.site_stat_code') !!}</p>
+        <p>Copyright © 2016-{{date('Y')}} {{config('web.web_site')}} All Rights Reserved @if(app()->environment('prod')){!! config('web.site_stat_code') !!}@endif</p>
         @if (!empty(config('web.beian_recoed')))
             <p><a href="http://www.beian.miit.gov.cn" target="_blank">{{config('web.beian_recoed')}}</a></p>
         @endif

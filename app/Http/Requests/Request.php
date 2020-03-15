@@ -17,11 +17,11 @@ class Request extends FormRequest
 //        return $validator->errors()->all();
     }
 
-    protected function failedValidation(Validator $validator)
+    public function failedValidation(Validator $validator)
     {
         // 此处自定义您想要返回的数据类型
         $data = [
-            'code' => 400,
+            'status' => 400,
             'msg' => $validator->errors()->first(),
         ];
         $respone = new Response(json_encode($data));
@@ -30,4 +30,18 @@ class Request extends FormRequest
             ->redirectTo($this->getRedirectUrl());
     }
 
+    public function rules()
+    {
+        return [];
+    }
+
+    /**
+     * Determine if the user is authorized to make this request.
+     *
+     * @return bool
+     */
+    public function authorize()
+    {
+        return true;
+    }
 }

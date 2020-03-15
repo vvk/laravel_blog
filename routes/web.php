@@ -39,8 +39,10 @@ Route::group(['middleware' => ['web', 'admin.auth'], 'prefix'=>'admin', 'namespa
     Route::resource('banner', 'BannerController');
     Route::resource('link', 'LinkController');
 
-
     Route::get('figure-bed', 'FigureBedController@index');
+
+    Route::post('option/save-option', 'OptionController@storeOption');
+    Route::resource('option', 'OptionController');
 
     //ueditor编辑器
     Route::group(['prefix'=>'ueditor'], function(){
