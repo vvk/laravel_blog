@@ -65,9 +65,9 @@
                                             @endforeach
                                         </div>
                                     @endif
-                                    <div class="col-md-1">
+                                    <!--<div class="col-md-1">
                                         <a href="{{url('admin/option/'.$item['id'].'/edit')}}" class="btn btn-primary">修改</a>
-                                    </div>
+                                    </div>-->
                                 </div>
 
                                 @if(!$loop->last)
