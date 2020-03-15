@@ -30,7 +30,8 @@ class IndexController extends CommonController
             });
         }
 
-        $data = $query->orderBy('publish_time', 'desc')->paginate(10);
+        $pageSize = $this->options->get('page_size');
+        $data = $query->orderBy('publish_time', 'desc')->paginate($pageSize);
 
         if($s){
             $page = $data->appends(array('s' => $s))->render();

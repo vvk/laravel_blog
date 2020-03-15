@@ -20,6 +20,7 @@ class ComposerServiceProvider extends ServiceProvider
         view()->composer($view, 'App\Http\ViewComposers\FlinkComposer');
         view()->composer($view, 'App\Http\ViewComposers\ArticleComposer');
         view()->composer($view, 'App\Http\ViewComposers\TagComposer');
+        //view()->composer($view, 'App\Http\ViewComposers\OptionComposer');
     }
 
     /**

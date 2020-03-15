@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
+use App\Repositories\Option\OptionRepository;
 use App\Services\ArticleService;
 use App\Services\BannerService;
+use App\Services\OptionService;
 use App\Services\Tag;
 use App\Services\TagService;
 use Illuminate\Support\ServiceProvider;
@@ -13,9 +15,10 @@ class FacadesServiceProvider extends ServiceProvider
     /**
      * Bootstrap the application services.
      *
+     * @param OptionRepository $repository
      * @return void
      */
-    public function boot()
+    public function boot(OptionRepository $repository)
     {
         $this->app->singleton('banner',function(){
             return new BannerService();
@@ -27,6 +30,10 @@ class FacadesServiceProvider extends ServiceProvider
 
         $this->app->singleton('tag',function(){
             return new TagService();
+        });
+
+        $this->app->singleton('option',function() use ($repository){
+            return new OptionService($repository);
         });
 
     }

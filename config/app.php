@@ -242,6 +242,7 @@ return [
         'Banner' => App\Services\Facades\Banner::class,
         'Article' => App\Services\Facades\Article::class,
         'Tag' => App\Services\Facades\Tag::class,
+        'Option' => App\Services\Facades\Option::class,
 
     ],
 

@@ -46,7 +46,7 @@
     </section>
 @endsection
 
-@section('js')
+@section('after_js')
     <script type="text/javascript">
         var uploadUrl = '{{url("figure-bed/upload")}}';
     </script>
@@ -54,4 +54,4 @@
     <script type="text/javascript" src="{{asset('static/bootstrap/js/bootstrap.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('static/js/libs/clipboard.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('static/js/figure-bed.js')}}"></script>
-@show
+@endsection

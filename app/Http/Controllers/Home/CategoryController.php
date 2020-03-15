@@ -33,9 +33,10 @@ class CategoryController extends CommonController
 
         $articleId = array_unique($articleId);
 
+        $pageSize = $this->options->get('page_size');
         $data = Article::where('status', 2)->whereIn('id', $articleId)
             ->select('id','name','thumb','publish_time', 'content', 'description', 'view_count')
-            ->orderBy('publish_time', 'desc')->paginate(10);
+            ->orderBy('publish_time', 'desc')->paginate($pageSize);
 
         $page = $data->render();
 

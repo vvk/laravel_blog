@@ -2,17 +2,19 @@
 <div class="article-list">
     @foreach($data as $item)
         <article class="excerpt">
-            <a class="focus" href="{{url('archives/'.$item->id)}}" target="_blank">
-                <div style="transitionAll-box">
-                    @if($item->thumb)
-                        <img src="{{asset('static/image/grey.gif')}}" data-original="{{asset($item->thumb)}}" class="thumb lazy transitionAll" alt="">
-                    @elseif($item->category[0]->thumb)
-                        <img src="{{asset('static/image/grey.gif')}}" data-original="{{asset($item->category[0]->thumb)}}"  class="thumb lazy transitionAll" alt="">
-                    @else
-                        <img src="{{asset('static/image/grey.gif')}}" data-original="{{asset('static/image/img_error.png')}}"  class="thumb lazy transitionAll" alt="">
-                    @endif
-                </div>
-            </a>
+            @if($options->get('list_show_article_thumb') == 1)
+                <a class="focus" href="{{url('archives/'.$item->id)}}" target="_blank">
+                    <div style="transitionAll-box">
+                        @if($item->thumb)
+                            <img src="{{asset('static/image/grey.gif')}}" data-original="{{asset($item->thumb)}}" class="thumb lazy transitionAll" alt="">
+                        @elseif($item->category[0]->thumb)
+                            <img src="{{asset('static/image/grey.gif')}}" data-original="{{asset($item->category[0]->thumb)}}"  class="thumb lazy transitionAll" alt="">
+                        @else
+                            <img src="{{asset('static/image/grey.gif')}}" data-original="{{asset('static/image/img_error.png')}}"  class="thumb lazy transitionAll" alt="">
+                        @endif
+                    </div>
+                </a>
+            @endif
             <div>
                 <header>
                     <a class="cat" href="{{url('category/'.$item->category[0]->id)}}">{{$item->category[0]->name}}<i></i></a>

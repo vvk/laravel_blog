@@ -67,7 +67,9 @@
             <div class="widget widget-tops affix-top" style="top: 0px;">
                 <ul class="widget-nav">
                     <li class="active">网站公告</li>
-                    <li class="">联系我</li>
+                    @if(!empty($options->get('admin_email')))
+                        <li class="">联系我</li>
+                    @endif
                 </ul>
                 <ul class="widget-navcontent">
                     <li class="item item-01 active">
@@ -75,9 +77,11 @@
 
                         </ul>
                     </li>
-                    <li class="item item-02">
-                        <h3 style="background: none">如有疑问,请留言或邮件咨询<br/><a href="mailto:sunwq@sviping.com">sunwq@sviping.com</a></h3>
-                    </li>
+                    @if(!empty($options->get('admin_email')))
+                        <li class="item item-02">
+                            <h3 style="background: none">如有疑问,请留言或邮件咨询<br/><a href="mailto:sunwq@sviping.com">{{$options->get('admin_email')}}</a></h3>
+                        </li>
+                    @endif`
                 </ul>
             </div>
             <!-- 网站公告、会员中心 end -->

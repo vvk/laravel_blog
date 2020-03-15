@@ -62,6 +62,14 @@ class OptionsTableSeeder extends Seeder
                     'value' => '',
                     'placeholder' => '',
                 ],
+                [
+                    'name' => '管理员邮箱',
+                    'title' => 'admin_email',
+                    'form_type' => 1,
+                    'create_time' => $time,
+                    'value' => '',
+                    'placeholder' => '管理员邮箱',
+                ],
             ]
         );
     }

@@ -18,11 +18,21 @@ class FigureBedController extends CommonController
     public function __construct()
     {
         parent::__construct();
+
+        if ($this->options->get('open_figure_bed') != 1) {
+            abort(404);
+        }
     }
 
     public function index()
     {
-        return Response::render('figure-bed.index');
+        $data = [
+            'title' => '龙卷风免费图床',
+            'keywords' => '龙卷风图床，图床，cdn，公共、高效、稳定，加速，免费，原图保存',
+            'description' => '龙卷风图床, 公共、高效、稳定、免费的全球 CDN 加速图床，原图保存',
+        ];
+
+        return Response::render('figure-bed.index', $data);
     }
 
     public function upload(FigureBedRequest $request, FigureBedRepository $figureBed)
@@ -47,8 +57,8 @@ class FigureBedController extends CommonController
             $count = $figureBed->getImageCount(date('Y-m-d'), $request->ip());
             if ($count >= $this->maxUploadCountUser) {
                 $msg = '您今天已上传'.$count.'张，由于资源有限，今天不能再上传图片，如果需要上传更多图片，请联系管理员';
-                if (config('web.mail')) {
-                    $mail = config('web.mail');
+                $mail = $this->options->get('admin_email');
+                if (!empty($mail)) {
                     $msg .= ' <a href="mailto:'.$mail.'">'.$mail.'</a>';
                 }
                 return ajaxResponse(403, $msg);

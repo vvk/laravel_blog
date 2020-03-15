@@ -11,9 +11,11 @@
             <li class="">
                 <a href="{{url('category/1')}}"><i class="fa fa-code"></i> PHP</a>
             </li>
-            <li class="">
-                <a href="{{url('figure-bed')}}"><i class="fa fa-image"></i> 图床</a>
-            </li>
+            @if($options->get('open_figure_bed') == 1)
+                <li class="">
+                    <a href="{{url('figure-bed')}}"><i class="fa fa-image"></i> 图床</a>
+                </li>
+            @endif
             <li class="navto-search">
                 <a href="javascript:;" class="search-show active"><i class="fa fa-search"></i></a>
             </li>
@@ -28,11 +30,13 @@
                                 <i class="fa fa-wechat"></i> 微信
                             </a>
                         </li>
-                        <li>
-                            <a rel="external nofollow" title="sunwq@sviping.com" href="mailto:sunwq@sviping.com">
-                                <i class="fa fa-envelope-o"></i> 邮箱
-                            </a>
-                        </li>
+                        @if(!empty($options->get('admin_email')))
+                            <li>
+                                <a rel="external nofollow" title="{{$options->get('admin_email')}}" href="mailto:{{$options->get('admin_email')}}">
+                                    <i class="fa fa-envelope-o"></i> 邮箱
+                                </a>
+                            </li>
+                        @endif
                     </ul>
                 </li>
             </ul>

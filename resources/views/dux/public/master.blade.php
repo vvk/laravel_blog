@@ -53,7 +53,6 @@
     <meta name="description" content="@section('description')@if(isset($description) && $description){{$description}}@else{{config('web.web_description')}}@endif @show">
     <link rel="shortcut icon" href="{{asset('favicon.ico')}}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
     @yield('before_css')
     @section('css')
         <link rel="stylesheet" href="{{asset('static/bootstrap/css/bootstrap.min.css')}}" type="text/css" media="all">
@@ -92,13 +91,12 @@
                 </div>
             @endif
         </div>
-        <p>Copyright © 2016-{{date('Y')}} {{config('web.web_site')}} All Rights Reserved @if(app()->environment('prod')){!! config('web.site_stat_code') !!}@endif</p>
-        @if (!empty(config('web.beian_recoed')))
-            <p><a href="http://www.beian.miit.gov.cn" target="_blank">{{config('web.beian_recoed')}}</a></p>
+        <p>Copyright © 2016-{{date('Y')}} {{config('web.web_site')}} All Rights Reserved @if(app()->environment('prod') && !empty($options->get('site_stat_code'))){!! $options->get('site_stat_code') !!}@endif</p>
+        @if ($options->get('beian_record_show') == 1 && !empty($options->get('beian_record')))
+            <p><a href="http://www.beian.miit.gov.cn" target="_blank">{{$options->get('beian_record')}}</a></p>
         @endif
     </div>
 </footer>
-
 <div class="m-mask">12</div>
 <div class="rollbar" style="display: none;">
     <ul>
@@ -108,7 +106,6 @@
         </li>
     </ul>
 </div>
-
 @yield('before_js')
 @section('js')
     <script>
@@ -123,7 +120,6 @@
     <script type="text/javascript" src="{{asset('static/js/loader.js')}}"></script>
 @show
 @yield('after_js')
-
 </body>
 </html>
 

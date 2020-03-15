@@ -34,7 +34,7 @@ function saveOption() {
 
 function getOptionData() {
     var data = {};
-    $(".option-form input[type='text'], .option-form textarea，, .option-form select").each(function (k, v) {//input
+    $(".option-form input[type='text'], .option-form textarea, .option-form select").each(function (k, v) {//input
         data[$(this).attr('name')] = $.trim($(this).val());
     });
 
