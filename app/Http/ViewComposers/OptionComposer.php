@@ -10,7 +10,7 @@ class OptionComposer
 {
     public function compose(View $view)
     {
-        $options = OptionService::getOptionList();
+        $options = OptionService::getOptionData();
         $view->with('options', $options);
     }
 }

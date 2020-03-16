@@ -17,4 +17,16 @@ class OptionService
     {
         return $this->repository->getOptionList();
     }
+
+    public function getOptionData()
+    {
+        $data = $this->getOptionList();
+        if (empty($data)) {
+            return $data;
+        }
+
+        return $data->mapWithKeys(function ($item) {
+            return [$item['title'] => $item['value']];
+        });
+    }
 }

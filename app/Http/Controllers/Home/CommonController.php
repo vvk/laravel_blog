@@ -18,10 +18,7 @@ class CommonController extends Controller
             return Response::view($tpl,$data);
         });
 
-        $this->options = OptionService::getOptionList();
-        $this->options = $this->options->mapWithKeys(function ($item) {
-            return [$item['title'] => $item['value']];
-        });
+        $this->options = OptionService::getOptionData();
         View::share('options', $this->options);
     }
 

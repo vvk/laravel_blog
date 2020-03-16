@@ -7,6 +7,9 @@ use Illuminate\Auth\AuthenticationException;
 use Illuminate\Database\QueryException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Validation\ValidationException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Option as OptionService;
+use Illuminate\Support\Facades\View;
 
 class Handler extends ExceptionHandler
 {
@@ -53,7 +56,12 @@ class Handler extends ExceptionHandler
 
         //数据库错误
         if (($exception instanceof QueryException || $exception instanceof \PDOException) && !config('app.debug')) {
-            return response()->view('errors.500');
+            View::share('options', collect([]));
+        }
+
+        if ($exception instanceof NotFoundHttpException) {
+            $options = OptionService::getOptionData();
+            View::share('options', $options);
         }
 
         return parent::render($request, $exception);
