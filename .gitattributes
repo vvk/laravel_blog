@@ -2,3 +2,4 @@
 *.css linguist-vendored=php
 *.scss linguist-vendored=php
 *.js linguist-vendored=php
+*.html linguist-vendored=php
