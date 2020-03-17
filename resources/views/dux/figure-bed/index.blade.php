@@ -46,7 +46,7 @@
     </section>
 @endsection
 
-@section('after_js')
+@section('before_js')
     <script type="text/javascript">
         var uploadUrl = '{{url("figure-bed/upload")}}';
     </script>
