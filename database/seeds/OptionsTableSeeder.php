@@ -42,7 +42,7 @@ class OptionsTableSeeder extends Seeder
                     'name' => '备案号',
                     'title' => 'beian_record',
                     'form_type' => 1,
-                    'placeholder' => '网站备案号1',
+                    'placeholder' => '网站备案号',
                     'create_time' => $time,
                     'value' => '',
                 ],
@@ -64,7 +64,7 @@ class OptionsTableSeeder extends Seeder
                 ],
                 [
                     'name' => '管理员邮箱',
-                    'title' => 'admin_email',
+                    'title' => 'admin_emai',
                     'form_type' => 1,
                     'create_time' => $time,
                     'value' => '',
