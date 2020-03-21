@@ -33,3 +33,14 @@ php artisan db:seed
 >* 前台地址：`http://example.com`
 >* 后台地址：`http://example.com/admin`
 >* 账号/密码：`admin/admin`
+
+* 图床功能  
+默认已添加图片功能，目前只支持上传到又拍云云存储上（后台添加文章、分类缩略图也可以使用又拍云驱动），使用的驱动是 [https://github.com/vvk/upyun-filesystem](https://github.com/vvk/upyun-filesystem)。  
+或要使用图床功能，首先需要在又拍云上购买相应的服务，然后修改`.env`中的默认配置：
+```php
+UPYUN_SERVICE=xxx
+UPYUN_OPERATOR=xxx
+UPYUN_PASSWORD=xxx
+UPYUN_DOMAIND=u-cdn.sviping.com
+```
+如果这四项没有配置，则图床功能不能使用。
