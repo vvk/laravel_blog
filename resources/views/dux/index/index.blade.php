@@ -81,7 +81,7 @@
                         <li class="item item-02">
                             <h3 style="background: none">如有疑问,请留言或邮件咨询<br/><a href="mailto:sunwq@sviping.com">{{$options->get('admin_email')}}</a></h3>
                         </li>
-                    @endif`
+                    @endif
                 </ul>
             </div>
             <!-- 网站公告、会员中心 end -->
