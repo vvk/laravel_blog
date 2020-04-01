@@ -83,6 +83,6 @@ class ArticleController extends CommonController
 
         $data->artitle_img_src = getArticleImgSrc($data->content);
 
-        return Response::render('article.article', compact('hotArticle', 'title', 'keywords', 'description', 'data', 'url', 'relevanceArticle', 'recommendArticle', 'usedTags', 'siblingArticle'));
+        return Response::render('article.article', compact('title', 'keywords', 'description', 'data', 'url', 'relevanceArticle', 'usedTags', 'siblingArticle'));
     }
 }
