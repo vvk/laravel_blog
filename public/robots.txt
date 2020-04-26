@@ -1,2 +1,7 @@
 User-agent: *
-Disallow:
+Allow:/
+Disallow:/static
+Disallow:/data
+Allow:/archives*
+Allow:/category*
+Allow:/figure-bed
