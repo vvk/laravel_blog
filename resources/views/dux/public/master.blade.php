@@ -93,7 +93,7 @@
         </div>
         <p>Copyright © 2016-{{date('Y')}} {{config('web.web_site')}} All Rights Reserved @if(app()->environment('prod') && !empty($options->get('site_stat_code'))){!! $options->get('site_stat_code') !!}@endif</p>
         @if ($options->get('beian_record_show') == 1 && !empty($options->get('beian_record')))
-            <p><a href="http://www.beian.miit.gov.cn" target="_blank">{{$options->get('beian_record')}}</a></p>
+            <p><a href="https://beian.miit.gov.cn" target="_blank">{{$options->get('beian_record')}}</a></p>
         @endif
     </div>
 </footer>
