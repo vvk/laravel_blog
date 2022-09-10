@@ -1,7 +1,7 @@
 <header class="header">
     <div class="container">
         <h1 class="logo">
-            <a href="{{url('')}}" title=""><img src="{{asset('static/image/logo.png')}}"></a>
+            <a href="{{url('')}}" title=""><img src="{{config('web.logo') ?: asset('static/image/logo.png')}}"></a>
         </h1>
         <div class="brand">我不生产代码<br>我只是代码的搬运工</div>
         <ul class="site-nav site-navbar">

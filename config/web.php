@@ -25,4 +25,6 @@ return array(
     'theme' => 'dux',
 
     'editor_type' => ['1' => 'Markdown', '2' => '百度编辑器'],
+
+    'logo' => asset('static/image/logo.png'),
 );
